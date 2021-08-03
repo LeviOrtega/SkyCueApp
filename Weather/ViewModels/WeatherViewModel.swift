@@ -7,23 +7,29 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 
 class WeatherViewModel: ObservableObject {
     
     // wrapping
-    private var weatherService: WeatherService!
-    
-    @Published var weather = WeatherMain()
-    @Published var weatherDescription = WeatherDescription()
+    var weatherService: WeatherService!
+  
+    @Published var weatherMain = WeatherMain()
+    @Published var weather = Weather()
+    @Published var system = WeatherSystem()
+    @Published var timezone: Int?
+
     
     init() {
         
         self.weatherService = WeatherService()
+        
+        
     }
     
     var temperature: String {
-        if let temp = self.weather.temp {
+        if let temp = self.weatherMain.temp {
             return String(format: "%.0f", temp)
         }
         else{
@@ -33,7 +39,7 @@ class WeatherViewModel: ObservableObject {
     
     
     var humidity: String {
-        if let humidity = self.weather.humidity {
+        if let humidity = self.weatherMain.humidity {
             return String(format: "%.0f", humidity)
         }
         else{
@@ -42,24 +48,65 @@ class WeatherViewModel: ObservableObject {
     }
     
     
+    var description: String {
+        if self.weather.description != nil{
+            return self.weather.description!
+        }
+        else{
+            return ""
+        }
+    }
+    
+    
     var main: String {
-        if let main = self.weatherDescription.mainDetails{
-            return main
+        if self.weather.main != nil{
+            return self.weather.main!
         }
-        else {
+        else{
             return ""
         }
     }
     
-    var desc: String {
-        if let desc = self.weatherDescription.details {
-            return desc
+    
+    var country: String {
+        if let country = self.system.country {
+            return self.system.country!
         }
-        else {
+        else{
             return ""
         }
     }
     
+    
+    var sunrise: Double {
+        if let sunrise = self.system.sunrise {
+            return Double(self.system.sunrise!)
+        }
+        else{
+            return 0.0
+        }
+    }
+    
+    var sunset: Double {
+        if let sunset = self.system.sunset {
+            return Double(self.system.sunset!)
+        }
+        else{
+            return 0.0
+        }
+    }
+    
+    
+    var timez: Int {
+        if self.timezone != nil {
+            return self.timezone!
+        }
+        else {
+            return 0
+        }
+    }
+
+
     
     var cityName: String = ""
     
@@ -68,24 +115,47 @@ class WeatherViewModel: ObservableObject {
         // remove spaces
         if let city = self.cityName.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed){
             fetchWeather(by: city)
+            
         }
+        
+        
     }
     
+    //description
     private func fetchWeather(by city: String){
-        self.weatherService.getWeather(city: city) { (weather, description) in
-            if let weather = weather{
+        self.weatherService.getWeather(city: city) { (main, weather, system, timezone) in
+            if let main = main{
                 
                 // setting on main thread 
                 DispatchQueue.main.async{
-                self.weather = weather
+                self.weatherMain = main
                 }
             }
-            if let description = description {
+            
+            if weather[0] != nil{
                 
-                DispatchQueue.main.async {
-                    self.weatherDescription = description
+                // setting on main thread
+                DispatchQueue.main.async{
+                    self.weather = weather[0]!
                 }
             }
+            
+            
+            if let sys = system{
+                // setting on main thread
+                DispatchQueue.main.async{
+                    self.system = sys
+                }
+            }
+           
+        
+        if let time = timezone{
+            
+            // setting on main thread
+            DispatchQueue.main.async{
+            self.timezone = time
+            }
+        }
         }
     }
 }
