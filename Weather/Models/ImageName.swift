@@ -9,10 +9,18 @@ import Foundation
 import SwiftUI
 
 
-struct ImageName {
+class ImageName: ObservableObject{
     
-    @ObservedObject var isNight: IsNight
+    var isNight: IsNight
+    
+    init(){
+        isNight = IsNight()
+    }
  
+    
+    func setNight(isNight: IsNight){
+        self.isNight = isNight
+    }
     
     func correlateName(uncorrelatedName: String) -> String {
         

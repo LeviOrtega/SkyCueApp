@@ -49,6 +49,7 @@ func getNightTime(dateString: String, weatherVM: WeatherViewModel) -> Bool {
     var sunrise = convertToMilitary(dateString: sunriseRaw)
     var sunset = convertToMilitary(dateString: sunsetRaw)
     
+    //print(date24)
     
     return date24 <= sunrise || date24 >= sunset
 }

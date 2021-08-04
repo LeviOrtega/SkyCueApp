@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB0F572F26B9D74600DAEE2E /* MainStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0F572E26B9D74600DAEE2E /* MainStackView.swift */; };
 		FBE3526426B71B47006812CE /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE3526326B71B47006812CE /* ErrorAlert.swift */; };
 		FBE3526626B72D75006812CE /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE3526526B72D75006812CE /* Error.swift */; };
 		FBE3526826B732F9006812CE /* ImageName.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE3526726B732F9006812CE /* ImageName.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FB0F572E26B9D74600DAEE2E /* MainStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStackView.swift; sourceTree = "<group>"; };
 		FBE3526326B71B47006812CE /* ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
 		FBE3526526B72D75006812CE /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		FBE3526726B732F9006812CE /* ImageName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageName.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				FBE3526326B71B47006812CE /* ErrorAlert.swift */,
 				FBE3528826B8BFA1006812CE /* TimeImageView.swift */,
 				FBE3528626B8AB61006812CE /* DescriptionView.swift */,
+				FB0F572E26B9D74600DAEE2E /* MainStackView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB0F572F26B9D74600DAEE2E /* MainStackView.swift in Sources */,
 				FBF094B426B3652400B0EB70 /* WeatherService.swift in Sources */,
 				FBF094B726B4A89400B0EB70 /* WeatherViewModel.swift in Sources */,
 				FBE3528926B8BFA1006812CE /* TimeImageView.swift in Sources */,
