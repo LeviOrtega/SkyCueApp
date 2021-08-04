@@ -86,7 +86,7 @@ struct MainStackView: View {
                     
                 })
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + refreshTime) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + refreshTime + 0.2) {
                 
                 refresh()
             }
@@ -159,11 +159,17 @@ struct RefreshAndLocateView: View {
             
             Button(action: {
                 // this is the only time that we use the onUserDemand as its when the user actually presses the locate button
-                locate(locationManager: locationManager, weatherVM: weatherVM, error: error, onUserDemand: true)
-                refreshed.toggle()
                 withAnimation(.easeInOut(duration: refreshTime)) {
                     textFieldViewOpacty = 0
                 }
+                
+                // wait for text field text fade
+                DispatchQueue.main.asyncAfter(deadline: .now() + refreshTime) {
+                    
+                    locate(locationManager: locationManager, weatherVM: weatherVM, error: error, onUserDemand: true)
+                    refreshed.toggle()
+                }
+                
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + refreshTime + 1) {
                     
