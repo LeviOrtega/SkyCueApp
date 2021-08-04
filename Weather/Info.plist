@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>SkyCue</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -26,9 +28,9 @@
 		<true/>
 	</dict>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Display current location&apos;s weather upon app startup. Don&apos;t allow for random locations.</string>
+	<string>Display current location's weather upon app startup. Don't allow for random locations.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Display current location&apos;s weather upon app startup. Don&apos;t allow for random locations.</string>
+	<string>Display current location's weather upon app startup. Don't allow for random locations.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

@@ -200,7 +200,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FBF0949326B3604D00B0EB70 /* Build configuration list for PBXProject "Weather" */;
+			buildConfigurationList = FBF0949326B3604D00B0EB70 /* Build configuration list for PBXProject "SkyCue" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -403,7 +403,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.leviortega.Skycue;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leviortega.SkyCue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -424,7 +424,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.leviortega.Skycue;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leviortega.SkyCue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -434,7 +434,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FBF0949326B3604D00B0EB70 /* Build configuration list for PBXProject "Weather" */ = {
+		FBF0949326B3604D00B0EB70 /* Build configuration list for PBXProject "SkyCue" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FBF094AA26B3604E00B0EB70 /* Debug */,
