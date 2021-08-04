@@ -152,7 +152,7 @@ struct RefreshAndLocateView: View {
     @Binding var refreshed: Bool
     @Binding var textFieldViewOpacty: Double
 
-    var refreshTime = 0.3
+    let refreshTime = 0.3
     
     var body: some View {
         HStack{
