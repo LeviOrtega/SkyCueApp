@@ -49,11 +49,14 @@ struct ContentView: View {
         }
         // we want out view to display only when the data has been loaded all the way
         .onChange(of: self.weatherVM.cityName){ change in
+
+            if coverViewOpactity == 0{
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 withAnimation(.easeInOut(duration: 2), {
                     self.coverViewOpactity = 1
                     
                 })
+            }
             }
             
         }
@@ -74,6 +77,7 @@ struct ContentView: View {
 // find current location and search for it to display upon app startup
 func locate(locationManager: LocationManager, weatherVM: WeatherViewModel) {
     
+    print("Locating..")
     
     guard let exposedLocation = locationManager.exposedLocation else {
         print("*** Error in \(#function): exposedLocation is nil")
@@ -86,7 +90,11 @@ func locate(locationManager: LocationManager, weatherVM: WeatherViewModel) {
             return
         }
         weatherVM.cityName = placemark.locality!
+        weatherVM.search()
+        print("Location found: \(weatherVM.cityName)")
     }
+    
+    
     
 }
 

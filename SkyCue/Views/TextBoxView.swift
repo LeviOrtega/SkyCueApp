@@ -25,6 +25,7 @@ struct TextBoxView: View {
     var body: some View {
         TextField("Location", text: self.$weatherVM.cityName){
             
+            print("Searching location: \(weatherVM.cityName)")
             refreshed.toggle()
             
             

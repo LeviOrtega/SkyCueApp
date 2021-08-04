@@ -70,7 +70,7 @@ class WeatherViewModel: ObservableObject {
     
     var country: String {
         if let country = self.system.country {
-            return self.system.country!
+            return country
         }
         else{
             return ""
@@ -80,7 +80,7 @@ class WeatherViewModel: ObservableObject {
     
     var sunrise: Double {
         if let sunrise = self.system.sunrise {
-            return Double(self.system.sunrise!)
+            return Double(sunrise)
         }
         else{
             return 0.0
@@ -89,7 +89,7 @@ class WeatherViewModel: ObservableObject {
     
     var sunset: Double {
         if let sunset = self.system.sunset {
-            return Double(self.system.sunset!)
+            return Double(sunset)
         }
         else{
             return 0.0
@@ -114,15 +114,21 @@ class WeatherViewModel: ObservableObject {
     func search() {
         // remove spaces
         if let city = self.cityName.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed){
-            fetchWeather(by: city)
-            
+            let foundWeather = fetchWeather(by: city)
+            if foundWeather{
+                print("Search successful at: \(cityName)")
+            }else{
+                print("Search unsuccessful at: \(cityName)")
+
+            }
         }
         
         
     }
     
     //description
-    private func fetchWeather(by city: String){
+    private func fetchWeather(by city: String) -> Bool{
+        var returnWeather: Bool = true
         self.weatherService.getWeather(city: city) { (main, weather, system, timezone) in
             if let main = main{
                 
@@ -130,6 +136,9 @@ class WeatherViewModel: ObservableObject {
                 DispatchQueue.main.async{
                 self.weatherMain = main
                 }
+            }
+            else {
+                returnWeather = false
             }
             
             if weather[0] != nil{
@@ -139,6 +148,9 @@ class WeatherViewModel: ObservableObject {
                     self.weather = weather[0]!
                 }
             }
+            else {
+                returnWeather = false
+            }
             
             
             if let sys = system{
@@ -146,6 +158,9 @@ class WeatherViewModel: ObservableObject {
                 DispatchQueue.main.async{
                     self.system = sys
                 }
+            }
+            else {
+                returnWeather = false
             }
            
         
@@ -156,6 +171,14 @@ class WeatherViewModel: ObservableObject {
             self.timezone = time
             }
         }
+        else {
+            returnWeather = false
         }
+            
+            
+            
+            
+        }
+        return returnWeather
     }
 }

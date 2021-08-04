@@ -62,6 +62,7 @@ struct MainStackView: View {
         .offset(x: 0, y: -25)
         .onAppear(){
             // on app startup we wish to look for the location of the user and display their current city's weather
+            
             locate(locationManager: locationManager, weatherVM: weatherVM)
             refreshed.toggle()
 
@@ -76,7 +77,7 @@ struct MainStackView: View {
             refreshed.toggle()
 
         }
-        .onChange(of: refreshed){toggle in
+        .onChange(of: self.refreshed){toggle in
             
                 // if the cityName changed we need to refresh
                 withAnimation(.easeInOut(duration: refreshTime), {
@@ -98,10 +99,7 @@ struct MainStackView: View {
                     
                 })
             }
-                
-               
-                
-            
+      
             
         }
         .onChange(of: self.weatherVM.sunset){ change in
@@ -127,8 +125,6 @@ struct MainStackView: View {
         }
         
         .background(self.backGroundColor)
-        
-        
         .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
         .opacity(isNight.isNightTime ? 0.9 : 0.8)
         
@@ -137,6 +133,7 @@ struct MainStackView: View {
     
     
     func refresh(){
+        print("Refreshing")
         weatherVM.search()
         getTimeInfo(isNight: self.isNight, weatherVM: self.weatherVM)
     }
