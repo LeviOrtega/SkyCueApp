@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FB0F572F26B9D74600DAEE2E /* MainStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0F572E26B9D74600DAEE2E /* MainStackView.swift */; };
+		FB2BC06226BB551D003EDCDC /* Locate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BC06126BB551D003EDCDC /* Locate.swift */; };
 		FBE3526426B71B47006812CE /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE3526326B71B47006812CE /* ErrorAlert.swift */; };
 		FBE3526626B72D75006812CE /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE3526526B72D75006812CE /* Error.swift */; };
 		FBE3526826B732F9006812CE /* ImageName.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE3526726B732F9006812CE /* ImageName.swift */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		FB0F572E26B9D74600DAEE2E /* MainStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStackView.swift; sourceTree = "<group>"; };
+		FB2BC06126BB551D003EDCDC /* Locate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locate.swift; sourceTree = "<group>"; };
 		FBE3526326B71B47006812CE /* ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
 		FBE3526526B72D75006812CE /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		FBE3526726B732F9006812CE /* ImageName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageName.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				FBE3526E26B78558006812CE /* LocationManager.swift */,
+				FB2BC06126BB551D003EDCDC /* Locate.swift */,
 			);
 			path = LocationModels;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 				FBE3527626B7E346006812CE /* IsNight.swift in Sources */,
 				FBE3526F26B78558006812CE /* LocationManager.swift in Sources */,
 				FBF094B126B3647A00B0EB70 /* WeatherMain.swift in Sources */,
+				FB2BC06226BB551D003EDCDC /* Locate.swift in Sources */,
 				FBE3528F26B8F6E3006812CE /* RandomCity.swift in Sources */,
 				FBE3526626B72D75006812CE /* Error.swift in Sources */,
 				FBE3528126B8A0F5006812CE /* TimeView.swift in Sources */,

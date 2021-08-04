@@ -16,6 +16,7 @@ struct MainStackView: View {
     @ObservedObject var isNight: IsNight
     @ObservedObject var locationManager: LocationManager
     @ObservedObject var imageName: ImageName
+    @ObservedObject var error: Error
     @Binding var refreshViewOpacity: Double
     @Binding var textFieldViewOpacty: Double
     @Binding var refreshed: Bool
@@ -56,14 +57,14 @@ struct MainStackView: View {
             
             Spacer()
             
-            RefreshAndLocateView(locationManager: locationManager, weatherVM: weatherVM, isNight: isNight, refreshed: $refreshed, textFieldViewOpacty: $textFieldViewOpacty)
+            RefreshAndLocateView(locationManager: locationManager, weatherVM: weatherVM, isNight: isNight, error: error, refreshed: $refreshed, textFieldViewOpacty: $textFieldViewOpacty)
              
         }.foregroundColor(.white)
         .offset(x: 0, y: -25)
         .onAppear(){
             // on app startup we wish to look for the location of the user and display their current city's weather
             
-            locate(locationManager: locationManager, weatherVM: weatherVM)
+            locate(locationManager: locationManager, weatherVM: weatherVM, error: error, onUserDemand: false)
             refreshed.toggle()
 
             
@@ -73,7 +74,7 @@ struct MainStackView: View {
             // if auth is not allowing us to find location, search will do nothing
             // this is only used for when the auth is initially changed after downloading the app
             
-            locate(locationManager: locationManager, weatherVM: weatherVM)
+            locate(locationManager: locationManager, weatherVM: weatherVM, error: error, onUserDemand: false)
             refreshed.toggle()
 
         }
@@ -147,6 +148,7 @@ struct RefreshAndLocateView: View {
     @ObservedObject var locationManager: LocationManager
     @ObservedObject var weatherVM: WeatherViewModel
     @ObservedObject var isNight: IsNight
+    @ObservedObject var error: Error
     @Binding var refreshed: Bool
     @Binding var textFieldViewOpacty: Double
 
@@ -156,7 +158,8 @@ struct RefreshAndLocateView: View {
         HStack{
             
             Button(action: {
-                locate(locationManager: locationManager, weatherVM: weatherVM)
+                // this is the only time that we use the onUserDemand as its when the user actually presses the locate button
+                locate(locationManager: locationManager, weatherVM: weatherVM, error: error, onUserDemand: true)
                 refreshed.toggle()
                 withAnimation(.easeInOut(duration: refreshTime)) {
                     textFieldViewOpacty = 0

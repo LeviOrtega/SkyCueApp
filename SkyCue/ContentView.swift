@@ -37,7 +37,7 @@ struct ContentView: View {
             // error view is put on top of zstack 
             ErrorAlert(displayError: $error.displayError, errorMessage: $error.errorMessage, errorType: $error.errorType)
             
-            MainStackView(weatherVM: weatherVM, isNight: isNight, locationManager: locationManager, imageName: imageName, refreshViewOpacity: $refreshViewOpacity, textFieldViewOpacty: $textFieldViewOpacity, refreshed: $refreshed, backGroundColor: $backGroundColor)
+            MainStackView(weatherVM: weatherVM, isNight: isNight, locationManager: locationManager, imageName: imageName, error: error, refreshViewOpacity: $refreshViewOpacity, textFieldViewOpacty: $textFieldViewOpacity, refreshed: $refreshed, backGroundColor: $backGroundColor)
             
         }.onAppear(){
             // if the user did not authorize location use, we will provide a random city to lookup upon app start
@@ -49,14 +49,14 @@ struct ContentView: View {
         }
         // we want out view to display only when the data has been loaded all the way
         .onChange(of: self.weatherVM.cityName){ change in
-
+            
             if coverViewOpactity == 0{
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                withAnimation(.easeInOut(duration: 2), {
-                    self.coverViewOpactity = 1
-                    
-                })
-            }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    withAnimation(.easeInOut(duration: 2), {
+                        self.coverViewOpactity = 1
+                        
+                    })
+                }
             }
             
         }
@@ -74,29 +74,6 @@ struct ContentView: View {
 }
 
 
-// find current location and search for it to display upon app startup
-func locate(locationManager: LocationManager, weatherVM: WeatherViewModel) {
-    
-    print("Locating..")
-    
-    guard let exposedLocation = locationManager.exposedLocation else {
-        print("*** Error in \(#function): exposedLocation is nil")
-        return
-    }
-    
-    locationManager.getPlace(for: exposedLocation) { placemark in
-        guard let placemark = placemark else { return }
-        if placemark.locality == nil {
-            return
-        }
-        weatherVM.cityName = placemark.locality!
-        weatherVM.search()
-        print("Location found: \(weatherVM.cityName)")
-    }
-    
-    
-    
-}
 
 
 
