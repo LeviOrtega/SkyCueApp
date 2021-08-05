@@ -39,32 +39,35 @@ func getTime(weatherVM: WeatherViewModel) -> String {
 
 func getNightTime(dateString: String, weatherVM: WeatherViewModel) -> Bool {
     
-    let date24 = convertToMilitary(dateString: dateString)
+    let date24 = convert12And24(dateString: dateString)
     
     // we get the sunset and sunrise raw numbers which are seconds unix UTC anc convert them to a date
     let sunriseRaw = convertDate(timeResult: weatherVM.sunrise, weatherVM: weatherVM)
     let sunsetRaw = convertDate(timeResult: weatherVM.sunset, weatherVM: weatherVM)
     
     // then we take that date and convert it into a 24 hour military time to use in the final comparison
-    let sunrise = convertToMilitary(dateString: sunriseRaw)
-    let sunset = convertToMilitary(dateString: sunsetRaw)
+    let sunrise = convert12And24(dateString: sunriseRaw)
+    let sunset = convert12And24(dateString: sunsetRaw)
     
     //print(date24)
     
     return date24 <= sunrise || date24 >= sunset
 }
 
-func convertToMilitary(dateString: String) -> Date{
+func convert12And24(dateString: String) -> Date{
     
     
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "h:mm a"
     dateFormatter.locale = Locale(identifier: "en_US_POSIX") // fixes nil if device time in 24 hour format
-    let date = dateFormatter.date(from: dateString)
+    
+    guard let date24 = dateFormatter.date(from: dateString) else {
+        dateFormatter.dateFormat = "HH:mm"
+        let date12 = dateFormatter.date(from: dateString)
+        dateFormatter.dateFormat = "h:mm a"
+        return date12!
+    }
     
     dateFormatter.dateFormat = "HH:mm"
-    
-    //let date24 = dateFormatter.string(from: date!)
-    
-    return date!
+    return date24
 }
