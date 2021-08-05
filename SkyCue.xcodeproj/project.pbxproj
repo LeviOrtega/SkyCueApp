@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		FB0F572F26B9D74600DAEE2E /* MainStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0F572E26B9D74600DAEE2E /* MainStackView.swift */; };
 		FB2BC06226BB551D003EDCDC /* Locate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BC06126BB551D003EDCDC /* Locate.swift */; };
+		FB2BC08526BC70AE003EDCDC /* ForecastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BC08426BC70AE003EDCDC /* ForecastService.swift */; };
+		FB2BC08726BC7B5B003EDCDC /* ForecastResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BC08626BC7B5B003EDCDC /* ForecastResponse.swift */; };
 		FBE3526426B71B47006812CE /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE3526326B71B47006812CE /* ErrorAlert.swift */; };
 		FBE3526626B72D75006812CE /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE3526526B72D75006812CE /* Error.swift */; };
 		FBE3526826B732F9006812CE /* ImageName.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE3526726B732F9006812CE /* ImageName.swift */; };
@@ -36,6 +38,8 @@
 /* Begin PBXFileReference section */
 		FB0F572E26B9D74600DAEE2E /* MainStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStackView.swift; sourceTree = "<group>"; };
 		FB2BC06126BB551D003EDCDC /* Locate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locate.swift; sourceTree = "<group>"; };
+		FB2BC08426BC70AE003EDCDC /* ForecastService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastService.swift; sourceTree = "<group>"; };
+		FB2BC08626BC7B5B003EDCDC /* ForecastResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastResponse.swift; sourceTree = "<group>"; };
 		FBE3526326B71B47006812CE /* ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
 		FBE3526526B72D75006812CE /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		FBE3526726B732F9006812CE /* ImageName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageName.swift; sourceTree = "<group>"; };
@@ -147,6 +151,7 @@
 				FBE3526726B732F9006812CE /* ImageName.swift */,
 				FBE3527526B7E346006812CE /* IsNight.swift */,
 				FBF094B026B3647A00B0EB70 /* WeatherMain.swift */,
+				FB2BC08626BC7B5B003EDCDC /* ForecastResponse.swift */,
 				FBE3528E26B8F6E3006812CE /* RandomCity.swift */,
 			);
 			path = Models;
@@ -156,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				FBF094B326B3652400B0EB70 /* WeatherService.swift */,
+				FB2BC08426BC70AE003EDCDC /* ForecastService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -247,6 +253,7 @@
 				FBE3528726B8AB61006812CE /* DescriptionView.swift in Sources */,
 				FBE3528326B8A117006812CE /* InfoView.swift in Sources */,
 				FBE3528526B8A18E006812CE /* DateViewModel.swift in Sources */,
+				FB2BC08526BC70AE003EDCDC /* ForecastService.swift in Sources */,
 				FBE3526A26B733F4006812CE /* ImageView.swift in Sources */,
 				FBF0949E26B3604D00B0EB70 /* SceneDelegate.swift in Sources */,
 				FBE3526426B71B47006812CE /* ErrorAlert.swift in Sources */,
@@ -258,6 +265,7 @@
 				FBE3528F26B8F6E3006812CE /* RandomCity.swift in Sources */,
 				FBE3526626B72D75006812CE /* Error.swift in Sources */,
 				FBE3528126B8A0F5006812CE /* TimeView.swift in Sources */,
+				FB2BC08726BC7B5B003EDCDC /* ForecastResponse.swift in Sources */,
 				FBF094A026B3604D00B0EB70 /* ContentView.swift in Sources */,
 				FBE3527A26B89FD5006812CE /* TextBoxView.swift in Sources */,
 			);

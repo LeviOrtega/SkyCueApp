@@ -11,7 +11,13 @@ struct WeatherResponse: Decodable {
     let main: WeatherMain
     let weather: [Weather]
     let sys: WeatherSystem
+    let coord: Coord
     var timezone: Int?
+}
+
+struct Coord: Decodable {
+    var lat: Double?
+    var lon: Double?
 }
 
 struct WeatherMain: Decodable  {

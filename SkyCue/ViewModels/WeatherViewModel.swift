@@ -14,16 +14,20 @@ class WeatherViewModel: ObservableObject {
     
     // wrapping
     var weatherService: WeatherService!
+    var forecastService: ForecastService!
   
     @Published var weatherMain = WeatherMain()
     @Published var weather = Weather()
     @Published var system = WeatherSystem()
     @Published var timezone: Int?
+    @Published var coord = Coord()
+    @Published var dailyForecast = [DailyForecast()]
 
     
     init() {
         
         self.weatherService = WeatherService()
+        self.forecastService = ForecastService()
         
         
     }
@@ -105,6 +109,25 @@ class WeatherViewModel: ObservableObject {
             return 0
         }
     }
+    
+    
+    var lat: Double {
+        if let l = self.coord.lat {
+            return l
+        }
+        else{
+            return 0.0
+        }
+    }
+    
+    var lon: Double {
+        if let l = self.coord.lon {
+            return l
+        }
+        else{
+            return 0.0
+        }
+    }
 
 
     
@@ -114,71 +137,78 @@ class WeatherViewModel: ObservableObject {
     func search() {
         // remove spaces
         if let city = self.cityName.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed){
-            let foundWeather = fetchWeather(by: city)
-            if foundWeather{
-                print("Search successful at: \(cityName)")
-            }else{
-                print("Search unsuccessful at: \(cityName)")
-
-            }
+        fetchWeather(by: city)
+        }
+        if let cityLon = self.coord.lon , let cityLat = self.coord.lat {
+             fetchForecast(lat: cityLat, lon: cityLon)
         }
         
         
+        
+    
     }
     
-    //description
-    private func fetchWeather(by city: String) -> Bool{
-        var returnWeather: Bool = true
-        self.weatherService.getWeather(city: city) { (main, weather, system, timezone) in
-            if let main = main{
+    private func fetchForecast(lat: Double, lon: Double){
+        self.forecastService.getForecast(lat: lat, lon: lon) { dailyForecast in
+            
+            if let d = dailyForecast {
+                DispatchQueue.main.async{
+                    self.dailyForecast = d
+                }
+                
+            }
+            
+        }
+    }
+    
+    
+    private func fetchWeather(by city: String) {
+        self.weatherService.getWeather(city: city) { (mainCall, weatherCall, systemCall, timezoneCall, coordCall) in
+            
+            if mainCall != nil{
                 
                 // setting on main thread 
                 DispatchQueue.main.async{
-                self.weatherMain = main
+                self.weatherMain = mainCall!
                 }
             }
-            else {
-                returnWeather = false
-            }
             
-            if weather[0] != nil{
+            if weatherCall[0] != nil{
                 
                 // setting on main thread
                 DispatchQueue.main.async{
-                    self.weather = weather[0]!
+                    self.weather = weatherCall[0]!
                 }
             }
-            else {
-                returnWeather = false
-            }
             
             
-            if let sys = system{
+            if systemCall != nil{
                 // setting on main thread
                 DispatchQueue.main.async{
-                    self.system = sys
+                    self.system = systemCall!
                 }
-            }
-            else {
-                returnWeather = false
             }
            
         
-        if let time = timezone{
+        if timezoneCall != nil{
             
             // setting on main thread
             DispatchQueue.main.async{
-            self.timezone = time
+            self.timezone = timezoneCall!
             }
         }
-        else {
-            returnWeather = false
-        }
+            
+        if coordCall != nil{
+                
+                // setting on main thread
+                DispatchQueue.main.async{
+                self.coord = coordCall!
+                }
+            }
             
             
             
             
         }
-        return returnWeather
     }
 }

@@ -39,6 +39,8 @@ struct ContentView: View {
             
             MainStackView(weatherVM: weatherVM, isNight: isNight, locationManager: locationManager, imageName: imageName, error: error, refreshViewOpacity: $refreshViewOpacity, textFieldViewOpacty: $textFieldViewOpacity, refreshed: $refreshed, backGroundColor: $backGroundColor)
             
+            
+            
         }.onAppear(){
             // if the user did not authorize location use, we will provide a random city to lookup upon app start
             if isAuthorized() == false {

@@ -14,7 +14,8 @@ class WeatherService{
     // instance of error we care about 
     @ObservedObject var error = Error()
     
-    func getWeather(city: String, completion: @escaping (WeatherMain?, [Weather?], WeatherSystem?, Int?) -> ()){
+    func getWeather(city: String, completion:
+                        @escaping (WeatherMain?, [Weather?], WeatherSystem?, Int?, Coord?) -> ()){
         
         
         
@@ -26,7 +27,7 @@ class WeatherService{
             self.error.displayError = true
             self.error.errorMessage = "Unable to connect to servers, please connect to a network."
             self.error.errorType = "Network Error"
-            completion(nil, [nil], nil, nil)
+            completion(nil, [nil], nil, nil, nil)
             
             return
         }
@@ -41,7 +42,7 @@ class WeatherService{
                 self.error.displayError = true
                 self.error.errorMessage = "Unable to connect to servers, please connect to a network."
                 self.error.errorType = "Network Error"
-                completion(nil, [nil], nil, nil)
+                completion(nil, [nil], nil, nil, nil)
 
                 return
             }
@@ -53,7 +54,9 @@ class WeatherService{
                 let weather = weatherResponse?.weather
                 let weatherSystem = weatherResponse?.sys
                 let timezone = weatherResponse?.timezone
-                completion(weatherMain, weather!, weatherSystem, timezone)
+                let coord = weatherResponse?.coord
+                completion(weatherMain, weather!, weatherSystem, timezone, coord)
+                
                 
             }else{
                 
@@ -65,7 +68,7 @@ class WeatherService{
                 }
                 
                 
-                completion(nil, [nil], nil, nil)
+                completion(nil, [nil], nil, nil, nil)
 
                 
             }
