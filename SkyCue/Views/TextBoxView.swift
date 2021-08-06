@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 
 struct TextBoxView: View {
@@ -37,6 +38,7 @@ struct TextBoxView: View {
         
         .background(self.backGroundColor)
         .cornerRadius(100)
+        
         
         
         
