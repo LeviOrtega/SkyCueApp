@@ -7,6 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB0524E426BDE8D600B4EC57 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0524E326BDE8D600B4EC57 /* Location.swift */; };
+		FB0524E726BDE9F800B4EC57 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0524E626BDE9F800B4EC57 /* LocationView.swift */; };
+		FB0524F026BDF05100B4EC57 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0524EF26BDF05100B4EC57 /* WidgetKit.framework */; };
+		FB0524F226BDF05100B4EC57 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0524F126BDF05100B4EC57 /* SwiftUI.framework */; };
+		FB0524F526BDF05100B4EC57 /* SkyCueWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0524F426BDF05100B4EC57 /* SkyCueWidget.swift */; };
+		FB0524F826BDF05200B4EC57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB0524F726BDF05200B4EC57 /* Assets.xcassets */; };
+		FB0524FA26BDF05200B4EC57 /* SkyCueWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = FB0524F626BDF05100B4EC57 /* SkyCueWidget.intentdefinition */; };
+		FB0524FB26BDF05200B4EC57 /* SkyCueWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = FB0524F626BDF05100B4EC57 /* SkyCueWidget.intentdefinition */; };
+		FB0524FE26BDF05200B4EC57 /* SkyCueWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FB0524ED26BDF05100B4EC57 /* SkyCueWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FB05250326BDF14900B4EC57 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0524E326BDE8D600B4EC57 /* Location.swift */; };
+		FB05250426BDF15100B4EC57 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF094B626B4A89400B0EB70 /* WeatherViewModel.swift */; };
+		FB05250526BDF16400B4EC57 /* DateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE3528426B8A18E006812CE /* DateViewModel.swift */; };
+		FB05250626BDF16700B4EC57 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF094B326B3652400B0EB70 /* WeatherService.swift */; };
+		FB05250726BDF16E00B4EC57 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE3526526B72D75006812CE /* Error.swift */; };
+		FB05250826BDF17200B4EC57 /* ImageName.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE3526726B732F9006812CE /* ImageName.swift */; };
+		FB05250926BDF17400B4EC57 /* IsNight.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE3527526B7E346006812CE /* IsNight.swift */; };
+		FB05250A26BDF17800B4EC57 /* WeatherMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF094B026B3647A00B0EB70 /* WeatherMain.swift */; };
+		FB05250C26BDF2ED00B4EC57 /* RandomCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE3528E26B8F6E3006812CE /* RandomCity.swift */; };
+		FB05250D26BDF4BF00B4EC57 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0524E626BDE9F800B4EC57 /* LocationView.swift */; };
+		FB05250E26BDF5AF00B4EC57 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE3526E26B78558006812CE /* LocationManager.swift */; };
+		FB05250F26BDF5B100B4EC57 /* Locate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BC06126BB551D003EDCDC /* Locate.swift */; };
+		FB05251026BDF5B400B4EC57 /* ForecastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BC08426BC70AE003EDCDC /* ForecastService.swift */; };
+		FB05251126BDF5BA00B4EC57 /* DayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BC08E26BDA320003EDCDC /* DayOfWeek.swift */; };
+		FB05251226BDF5BF00B4EC57 /* ForecastResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BC08626BC7B5B003EDCDC /* ForecastResponse.swift */; };
 		FB0F572F26B9D74600DAEE2E /* MainStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0F572E26B9D74600DAEE2E /* MainStackView.swift */; };
 		FB2BC06226BB551D003EDCDC /* Locate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BC06126BB551D003EDCDC /* Locate.swift */; };
 		FB2BC08526BC70AE003EDCDC /* ForecastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BC08426BC70AE003EDCDC /* ForecastService.swift */; };
@@ -38,7 +62,42 @@
 		FBF094B726B4A89400B0EB70 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF094B626B4A89400B0EB70 /* WeatherViewModel.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		FB0524FC26BDF05200B4EC57 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FBF0949026B3604D00B0EB70 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB0524EC26BDF05100B4EC57;
+			remoteInfo = SkyCueWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FB05250226BDF05200B4EC57 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				FB0524FE26BDF05200B4EC57 /* SkyCueWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		FB0524E326BDE8D600B4EC57 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		FB0524E626BDE9F800B4EC57 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
+		FB0524E826BDEEEF00B4EC57 /* SkyCue.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SkyCue.entitlements; sourceTree = "<group>"; };
+		FB0524ED26BDF05100B4EC57 /* SkyCueWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SkyCueWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB0524EF26BDF05100B4EC57 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		FB0524F126BDF05100B4EC57 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		FB0524F426BDF05100B4EC57 /* SkyCueWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyCueWidget.swift; sourceTree = "<group>"; };
+		FB0524F626BDF05100B4EC57 /* SkyCueWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = SkyCueWidget.intentdefinition; sourceTree = "<group>"; };
+		FB0524F726BDF05200B4EC57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FB0524F926BDF05200B4EC57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB05250B26BDF28C00B4EC57 /* SkyCueWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SkyCueWidgetExtension.entitlements; sourceTree = "<group>"; };
 		FB0F572E26B9D74600DAEE2E /* MainStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStackView.swift; sourceTree = "<group>"; };
 		FB2BC06126BB551D003EDCDC /* Locate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locate.swift; sourceTree = "<group>"; };
 		FB2BC08426BC70AE003EDCDC /* ForecastService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastService.swift; sourceTree = "<group>"; };
@@ -73,6 +132,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FB0524EA26BDF05100B4EC57 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB0524F226BDF05100B4EC57 /* SwiftUI.framework in Frameworks */,
+				FB0524F026BDF05100B4EC57 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FBF0949526B3604D00B0EB70 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -83,6 +151,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FB0524E526BDE9C200B4EC57 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				FB0524E326BDE8D600B4EC57 /* Location.swift */,
+				FB0524E626BDE9F800B4EC57 /* LocationView.swift */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
+		FB0524EE26BDF05100B4EC57 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FB0524EF26BDF05100B4EC57 /* WidgetKit.framework */,
+				FB0524F126BDF05100B4EC57 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FB0524F326BDF05100B4EC57 /* SkyCueWidget */ = {
+			isa = PBXGroup;
+			children = (
+				FB0524F426BDF05100B4EC57 /* SkyCueWidget.swift */,
+				FB0524F626BDF05100B4EC57 /* SkyCueWidget.intentdefinition */,
+				FB0524F726BDF05200B4EC57 /* Assets.xcassets */,
+				FB0524F926BDF05200B4EC57 /* Info.plist */,
+			);
+			path = SkyCueWidget;
+			sourceTree = "<group>";
+		};
 		FBE3526D26B78537006812CE /* LocationModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,7 +209,10 @@
 		FBF0948F26B3604D00B0EB70 = {
 			isa = PBXGroup;
 			children = (
+				FB05250B26BDF28C00B4EC57 /* SkyCueWidgetExtension.entitlements */,
 				FBF0949A26B3604D00B0EB70 /* SkyCue */,
+				FB0524F326BDF05100B4EC57 /* SkyCueWidget */,
+				FB0524EE26BDF05100B4EC57 /* Frameworks */,
 				FBF0949926B3604D00B0EB70 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -121,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				FBF0949826B3604D00B0EB70 /* SkyCue.app */,
+				FB0524ED26BDF05100B4EC57 /* SkyCueWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,17 +229,19 @@
 		FBF0949A26B3604D00B0EB70 /* SkyCue */ = {
 			isa = PBXGroup;
 			children = (
+				FB0524E826BDEEEF00B4EC57 /* SkyCue.entitlements */,
 				FBE3526D26B78537006812CE /* LocationModels */,
 				FBF094B526B4A87D00B0EB70 /* ViewModels */,
 				FBF094B226B3651000B0EB70 /* Services */,
 				FBF094AF26B3645F00B0EB70 /* Models */,
-				FBF0949B26B3604D00B0EB70 /* AppDelegate.swift */,
 				FBE3527B26B8A044006812CE /* Views */,
 				FBF0949D26B3604D00B0EB70 /* SceneDelegate.swift */,
+				FBF0949B26B3604D00B0EB70 /* AppDelegate.swift */,
 				FBF0949F26B3604D00B0EB70 /* ContentView.swift */,
 				FBF094A126B3604E00B0EB70 /* Assets.xcassets */,
 				FBF094A626B3604E00B0EB70 /* LaunchScreen.storyboard */,
 				FBF094A926B3604E00B0EB70 /* Info.plist */,
+				FB0524E526BDE9C200B4EC57 /* Widget */,
 				FBF094A326B3604E00B0EB70 /* Preview Content */,
 			);
 			path = SkyCue;
@@ -187,6 +290,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		FB0524EC26BDF05100B4EC57 /* SkyCueWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB0524FF26BDF05200B4EC57 /* Build configuration list for PBXNativeTarget "SkyCueWidgetExtension" */;
+			buildPhases = (
+				FB0524E926BDF05100B4EC57 /* Sources */,
+				FB0524EA26BDF05100B4EC57 /* Frameworks */,
+				FB0524EB26BDF05100B4EC57 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SkyCueWidgetExtension;
+			productName = SkyCueWidgetExtension;
+			productReference = FB0524ED26BDF05100B4EC57 /* SkyCueWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		FBF0949726B3604D00B0EB70 /* SkyCue */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FBF094AC26B3604E00B0EB70 /* Build configuration list for PBXNativeTarget "SkyCue" */;
@@ -194,10 +314,12 @@
 				FBF0949426B3604D00B0EB70 /* Sources */,
 				FBF0949526B3604D00B0EB70 /* Frameworks */,
 				FBF0949626B3604D00B0EB70 /* Resources */,
+				FB05250226BDF05200B4EC57 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FB0524FD26BDF05200B4EC57 /* PBXTargetDependency */,
 			);
 			name = SkyCue;
 			productName = Weather;
@@ -213,6 +335,9 @@
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
+					FB0524EC26BDF05100B4EC57 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
 					FBF0949726B3604D00B0EB70 = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
@@ -232,11 +357,20 @@
 			projectRoot = "";
 			targets = (
 				FBF0949726B3604D00B0EB70 /* SkyCue */,
+				FB0524EC26BDF05100B4EC57 /* SkyCueWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		FB0524EB26BDF05100B4EC57 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB0524F826BDF05200B4EC57 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FBF0949626B3604D00B0EB70 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -250,6 +384,30 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		FB0524E926BDF05100B4EC57 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB0524FA26BDF05200B4EC57 /* SkyCueWidget.intentdefinition in Sources */,
+				FB05250F26BDF5B100B4EC57 /* Locate.swift in Sources */,
+				FB05251226BDF5BF00B4EC57 /* ForecastResponse.swift in Sources */,
+				FB05250D26BDF4BF00B4EC57 /* LocationView.swift in Sources */,
+				FB05250A26BDF17800B4EC57 /* WeatherMain.swift in Sources */,
+				FB05250426BDF15100B4EC57 /* WeatherViewModel.swift in Sources */,
+				FB05250526BDF16400B4EC57 /* DateViewModel.swift in Sources */,
+				FB05250326BDF14900B4EC57 /* Location.swift in Sources */,
+				FB05250626BDF16700B4EC57 /* WeatherService.swift in Sources */,
+				FB05250726BDF16E00B4EC57 /* Error.swift in Sources */,
+				FB05251126BDF5BA00B4EC57 /* DayOfWeek.swift in Sources */,
+				FB05250826BDF17200B4EC57 /* ImageName.swift in Sources */,
+				FB05250C26BDF2ED00B4EC57 /* RandomCity.swift in Sources */,
+				FB0524F526BDF05100B4EC57 /* SkyCueWidget.swift in Sources */,
+				FB05250926BDF17400B4EC57 /* IsNight.swift in Sources */,
+				FB05251026BDF5B400B4EC57 /* ForecastService.swift in Sources */,
+				FB05250E26BDF5AF00B4EC57 /* LocationManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FBF0949426B3604D00B0EB70 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -267,6 +425,7 @@
 				FBE3526A26B733F4006812CE /* ImageView.swift in Sources */,
 				FBF0949E26B3604D00B0EB70 /* SceneDelegate.swift in Sources */,
 				FBE3526426B71B47006812CE /* ErrorAlert.swift in Sources */,
+				FB0524E426BDE8D600B4EC57 /* Location.swift in Sources */,
 				FBE3526826B732F9006812CE /* ImageName.swift in Sources */,
 				FBE3527626B7E346006812CE /* IsNight.swift in Sources */,
 				FBE3526F26B78558006812CE /* LocationManager.swift in Sources */,
@@ -278,12 +437,22 @@
 				FB2BC08F26BDA320003EDCDC /* DayOfWeek.swift in Sources */,
 				FB2BC08726BC7B5B003EDCDC /* ForecastResponse.swift in Sources */,
 				FBF094A026B3604D00B0EB70 /* ContentView.swift in Sources */,
+				FB0524FB26BDF05200B4EC57 /* SkyCueWidget.intentdefinition in Sources */,
+				FB0524E726BDE9F800B4EC57 /* LocationView.swift in Sources */,
 				FBE3527A26B89FD5006812CE /* TextBoxView.swift in Sources */,
 				FB2BC08926BCB0C4003EDCDC /* ForecastImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FB0524FD26BDF05200B4EC57 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB0524EC26BDF05100B4EC57 /* SkyCueWidgetExtension */;
+			targetProxy = FB0524FC26BDF05200B4EC57 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FBF094A626B3604E00B0EB70 /* LaunchScreen.storyboard */ = {
@@ -297,6 +466,50 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		FB05250026BDF05200B4EC57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = SkyCueWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YLL9QV7W9W;
+				INFOPLIST_FILE = SkyCueWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.leviortega.SkyCue.SkyCueWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FB05250126BDF05200B4EC57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = SkyCueWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YLL9QV7W9W;
+				INFOPLIST_FILE = SkyCueWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.leviortega.SkyCue.SkyCueWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		FBF094AA26B3604E00B0EB70 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -416,8 +629,10 @@
 		FBF094AD26B3604E00B0EB70 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SkyCue/SkyCue.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"SkyCue/Preview Content\"";
@@ -439,8 +654,10 @@
 		FBF094AE26B3604E00B0EB70 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SkyCue/SkyCue.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"SkyCue/Preview Content\"";
@@ -462,6 +679,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		FB0524FF26BDF05200B4EC57 /* Build configuration list for PBXNativeTarget "SkyCueWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB05250026BDF05200B4EC57 /* Debug */,
+				FB05250126BDF05200B4EC57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FBF0949326B3604D00B0EB70 /* Build configuration list for PBXProject "SkyCue" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

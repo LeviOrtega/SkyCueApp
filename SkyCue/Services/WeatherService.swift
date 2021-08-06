@@ -20,7 +20,7 @@ class WeatherService{
         
         
         // api call
-        guard let url = URL(string: "http://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=bd9fb8bfb9b56f8e978f9b4bfffb5092&units=imperial")
+        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=bd9fb8bfb9b56f8e978f9b4bfffb5092&units=imperial")
         
         else {
             

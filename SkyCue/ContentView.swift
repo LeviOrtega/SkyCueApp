@@ -9,12 +9,38 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @ObservedObject var weatherVM: WeatherViewModel = WeatherViewModel()
+    @ObservedObject var isNight: IsNight = IsNight()
+    @ObservedObject var imageName: ImageName = ImageName()
+
+    var location = Location(name: "Golden")
+    var location2 = Location(name: "Arvada")
+    
+    @AppStorage("location", store: UserDefaults(suiteName: "group.com.leviortega.SkyCue"))
+    var locationData: Data = Data()
+    
+    
+    
+    
     var body: some View {
-        MainView()
+        //MainView()
+        
+        Button("Button2"){
+            saveLocation(location: location2)
+        }
         
     }
     
+    
+    func saveLocation(location: Location){
+        guard let locationData = try? JSONEncoder().encode(location) else {return}
+        self.locationData = locationData
+    }
+    
 }
+
+
+
 
 
 
