@@ -10,8 +10,7 @@ import SwiftUI
 
 
 struct LocationView: View {
-    
-    @ObservedObject var weatherVM: WeatherViewModel
+
     var location: Location
     
     
@@ -20,10 +19,7 @@ struct LocationView: View {
             Text(location.name)
             
         }
-        .onAppear(){
-            weatherVM.cityName = location.name
-            weatherVM.search()
-        }
+        
         
     }
 
