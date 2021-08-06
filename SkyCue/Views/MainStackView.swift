@@ -130,7 +130,7 @@ struct MainContentView: View {
         
         VStack(alignment: .center){
             
-            
+            Spacer()
             
             
             //ScrollView{
@@ -179,6 +179,8 @@ struct MainContentView: View {
             
             
             //}
+            
+            Spacer()
             
             RefreshAndLocateView(locationManager: locationManager, weatherVM: weatherVM, isNight: isNight, error: error, refreshed: $refreshed, textFieldViewOpacty: $textFieldViewOpacty)
             

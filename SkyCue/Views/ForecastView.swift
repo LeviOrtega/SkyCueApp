@@ -48,17 +48,21 @@ struct ForecastView: View {
                             .lineLimit(nil)
                             .multilineTextAlignment(.center)
                         
-                    
-                        HStack{
-                            Image(systemName: "thermometer")
-                            Text(weatherVM.getDayTemp(dayIndex: day) + " \u{00B0}F")
-                                .font(Font.callout.weight(.light))
-                        }
+                       
                         
                         HStack{
-                            Image(systemName: "drop")
-                            Text(weatherVM.getDayHumidity(dayIndex: day) + "%")
-                                .font(Font.callout.weight(.light))
+                            VStack(alignment: .center){
+                                Image(systemName: "thermometer")
+                                Image(systemName: "drop")
+                            }
+                            VStack(alignment: .leading){
+                               
+                                Text(weatherVM.getDayTemp(dayIndex: day) + " \u{00B0}F")
+                                    .font(Font.callout.weight(.light))
+                                Text(weatherVM.getDayHumidity(dayIndex: day) + "%")
+                                    .font(Font.callout.weight(.light))
+                            }
+                            
                         }
                     }
                     .padding(10)
