@@ -25,65 +25,9 @@ struct MainStackView: View {
     var refreshTime: Double = 0.3
     
     var body: some View{
-        VStack(alignment: .center){
-            Spacer()
+        ZStack{
+            MainContentView(weatherVM: self.weatherVM, isNight: self.isNight, locationManager: self.locationManager, imageName: self.imageName, error: self.error, refreshViewOpacity: self.$refreshViewOpacity, textFieldViewOpacty: self.$textFieldViewOpacty, refreshed: self.$refreshed)
             
-            
-            HStack{
-                
-                VStack(alignment: .center){
-                    ImageView(weatherVM: self.weatherVM, imageName: imageName.correlateName(uncorrelatedName: self.weatherVM.main))
-                    DescriptionView(weatherVM: self.weatherVM)
-                    
-                }.padding(.all)
-                .opacity(0.8)
-                
-                
-                HStack{
-                    TimeImageView()
-                    TimeView(weatherVM: self.weatherVM)
-                }
-                .opacity(0.8)
-                .font(Font.headline.weight(.light))
-                .padding(.leading)
-                
-            }
-            .opacity(refreshViewOpacity)
-            
-            TextBoxView(weatherVM: self.weatherVM, isNight: self.isNight, refreshed: $refreshed, textFieldViewOpacty: $textFieldViewOpacty)
-            
-            InfoView(weatherVM: weatherVM)
-                .opacity(refreshViewOpacity)
-            
-            
-            
-            HStack{
-                ForEach((1..<4)) { day in
-                    var mainDesc = weatherVM.getDayMainDescription(dayIndex: day)
-                    
-                    
-                    ForecastImageView(weatherVM: weatherVM, imageName: self.imageName.correlateName(uncorrelatedName: mainDesc))
-                    
-                    
-                }
-            }
-            .padding()
-            HStack{
-                ForEach((4..<7)) { day in
-                    var mainDesc = weatherVM.getDayMainDescription(dayIndex: day)
-                    
-                    
-                    ForecastImageView(weatherVM: weatherVM, imageName: self.imageName.correlateName(uncorrelatedName: mainDesc))
-                    
-                    
-                }
-            }.padding()
-            
-            
-            
-            Spacer()
-            
-            RefreshAndLocateView(locationManager: locationManager, weatherVM: weatherVM, isNight: isNight, error: error, refreshed: $refreshed, textFieldViewOpacty: $textFieldViewOpacty)
             
         }.foregroundColor(.white)
         .offset(x: 0, y: -25)
@@ -163,6 +107,70 @@ struct MainStackView: View {
         print("Refreshing")
         weatherVM.search()
         getTimeInfo(isNight: self.isNight, weatherVM: self.weatherVM)
+    }
+    
+}
+
+
+struct MainContentView: View {
+    
+    
+    @ObservedObject var weatherVM: WeatherViewModel
+    @ObservedObject var isNight: IsNight
+    @ObservedObject var locationManager: LocationManager
+    @ObservedObject var imageName: ImageName
+    @ObservedObject var error: Error
+    @Binding var refreshViewOpacity: Double
+    @Binding var textFieldViewOpacty: Double
+    @Binding var refreshed: Bool
+    
+    
+    var body: some View {
+        VStack(alignment: .center){
+            Spacer()
+            
+            
+            HStack{
+                
+                VStack(alignment: .center){
+                    ImageView(weatherVM: self.weatherVM, imageName: imageName.correlateName(uncorrelatedName: self.weatherVM.main))
+                    DescriptionView(weatherVM: self.weatherVM)
+                    
+                }.padding(.all)
+                .opacity(0.8)
+                
+                
+                HStack{
+                    TimeImageView()
+                    TimeView(weatherVM: self.weatherVM)
+                }
+                .opacity(0.8)
+                .font(Font.headline.weight(.light))
+                .padding(.leading)
+                
+            }
+            .opacity(refreshViewOpacity)
+            
+            TextBoxView(weatherVM: self.weatherVM, isNight: self.isNight, refreshed: $refreshed, textFieldViewOpacty: $textFieldViewOpacty)
+            
+            InfoView(weatherVM: weatherVM)
+                .opacity(refreshViewOpacity)
+            
+            
+            
+            ForecastView(weatherVM: self.weatherVM, imageName: self.imageName)
+                .opacity(refreshViewOpacity)
+            
+            
+            
+            Spacer()
+            
+            RefreshAndLocateView(locationManager: locationManager, weatherVM: weatherVM, isNight: isNight, error: error, refreshed: $refreshed, textFieldViewOpacty: $textFieldViewOpacty)
+            
+        }.padding(1)
+        
+        
+        
     }
     
 }

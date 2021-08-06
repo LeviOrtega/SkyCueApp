@@ -9,9 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     
-    
-    
-
     var body: some View {
         MainView()
         
@@ -54,6 +51,7 @@ struct MainView: View {
             ErrorAlert(displayError: $error.displayError, errorMessage: $error.errorMessage, errorType: $error.errorType)
             
             MainStackView(weatherVM: weatherVM, isNight: isNight, locationManager: locationManager, imageName: imageName, error: error, refreshViewOpacity: $refreshViewOpacity, textFieldViewOpacty: $textFieldViewOpacity, refreshed: $refreshed, backGroundColor: $backGroundColor)
+                
             
             
             

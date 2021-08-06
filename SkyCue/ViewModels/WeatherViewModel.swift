@@ -60,6 +60,16 @@ class WeatherViewModel: ObservableObject {
         }
     }
     
+    func getDayTemp(dayIndex: Int) -> String {
+        if dayIndex >= self.dailyForecast.count  {
+            return ""
+        }
+        else {
+            var temp = self.dailyForecast[dayIndex].temp?.day
+            return String(format: "%.0f", temp!)
+        }
+    }
+    
     
    
     
@@ -188,7 +198,7 @@ class WeatherViewModel: ObservableObject {
                 DispatchQueue.main.async{
                     self.dailyForecast = d
                 }
-                print(self.dailyForecast.count)
+                
                 
             }
             

@@ -17,8 +17,8 @@ struct ForecastImageView: View {
     var body: some View {
             Image(systemName: imageName)
                 .resizable()
-                .scaledToFit()
-                //.frame(width: 100, height: 100, alignment: .center)
+                 .scaledToFit()
+                .frame(width: 120, height: 120, alignment: .center)
                 .opacity(0.8)
                 .font(Font.title.weight(.ultraLight))
         }
