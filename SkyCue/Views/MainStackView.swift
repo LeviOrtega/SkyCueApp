@@ -55,10 +55,36 @@ struct MainStackView: View {
             InfoView(weatherVM: weatherVM)
                 .opacity(refreshViewOpacity)
             
+            
+            
+            HStack{
+                ForEach((1..<4)) { day in
+                    var mainDesc = weatherVM.getDayMainDescription(dayIndex: day)
+                    
+                    
+                    ForecastImageView(weatherVM: weatherVM, imageName: self.imageName.correlateName(uncorrelatedName: mainDesc))
+                    
+                    
+                }
+            }
+            .padding()
+            HStack{
+                ForEach((4..<7)) { day in
+                    var mainDesc = weatherVM.getDayMainDescription(dayIndex: day)
+                    
+                    
+                    ForecastImageView(weatherVM: weatherVM, imageName: self.imageName.correlateName(uncorrelatedName: mainDesc))
+                    
+                    
+                }
+            }.padding()
+            
+            
+            
             Spacer()
             
             RefreshAndLocateView(locationManager: locationManager, weatherVM: weatherVM, isNight: isNight, error: error, refreshed: $refreshed, textFieldViewOpacty: $textFieldViewOpacty)
-             
+            
         }.foregroundColor(.white)
         .offset(x: 0, y: -25)
         .onAppear(){
@@ -66,7 +92,7 @@ struct MainStackView: View {
             
             locate(locationManager: locationManager, weatherVM: weatherVM, error: error, onUserDemand: false)
             refreshed.toggle()
-
+            
             
         }
         .onChange(of: self.locationManager.changed) { change in
@@ -76,15 +102,15 @@ struct MainStackView: View {
             
             locate(locationManager: locationManager, weatherVM: weatherVM, error: error, onUserDemand: false)
             refreshed.toggle()
-
+            
         }
         .onChange(of: self.refreshed){toggle in
             
-                // if the cityName changed we need to refresh
-                withAnimation(.easeInOut(duration: refreshTime), {
-                    self.refreshViewOpacity = 0
-                    
-                })
+            // if the cityName changed we need to refresh
+            withAnimation(.easeInOut(duration: refreshTime), {
+                self.refreshViewOpacity = 0
+                
+            })
             
             DispatchQueue.main.asyncAfter(deadline: .now() + refreshTime + 0.2) {
                 
@@ -100,7 +126,7 @@ struct MainStackView: View {
                     
                 })
             }
-      
+            
             
         }
         .onChange(of: self.weatherVM.sunset){ change in
@@ -151,7 +177,7 @@ struct RefreshAndLocateView: View {
     @ObservedObject var error: Error
     @Binding var refreshed: Bool
     @Binding var textFieldViewOpacty: Double
-
+    
     let refreshTime = 0.3
     
     var body: some View {
@@ -179,7 +205,7 @@ struct RefreshAndLocateView: View {
                         
                     })
                 }
-
+                
             }){
                 Image(systemName: "location")
             }

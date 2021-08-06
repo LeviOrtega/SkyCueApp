@@ -46,6 +46,7 @@ class ForecastService{
             let forecastResponse = try? JSONDecoder().decode(ForecastResponse.self, from: data)
             
             if let value = forecastResponse {
+                
                 let dailyForecast = value.daily
                 completion(dailyForecast)
                 

@@ -32,6 +32,38 @@ class WeatherViewModel: ObservableObject {
         
     }
     
+    
+    func getDayHumidity(dayIndex: Int) -> Int {
+        if dayIndex >= self.dailyForecast.count  {
+            return 0
+        }
+        else {
+            return self.dailyForecast[dayIndex].humidity
+        }
+    }
+    
+    func getDayDescription(dayIndex: Int) -> String {
+        if dayIndex >= self.dailyForecast.count  {
+            return ""
+        }
+        else {
+            return self.dailyForecast[dayIndex].weather![0].description!
+        }
+    }
+    
+    func getDayMainDescription(dayIndex: Int) -> String {
+        if dayIndex >= self.dailyForecast.count  {
+            return ""
+        }
+        else {
+            return self.dailyForecast[dayIndex].weather![0].main!
+        }
+    }
+    
+    
+   
+    
+    
     var temperature: String {
         if let temp = self.weatherMain.temp {
             return String(format: "%.0f", temp)
@@ -135,6 +167,7 @@ class WeatherViewModel: ObservableObject {
     
     
     func search() {
+        
         // remove spaces
         if let city = self.cityName.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed){
         fetchWeather(by: city)
@@ -155,6 +188,7 @@ class WeatherViewModel: ObservableObject {
                 DispatchQueue.main.async{
                     self.dailyForecast = d
                 }
+                print(self.dailyForecast.count)
                 
             }
             

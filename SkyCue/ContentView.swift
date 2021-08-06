@@ -10,6 +10,19 @@ import SwiftUI
 struct ContentView: View {
     
     
+    
+
+    var body: some View {
+        MainView()
+        
+    }
+    
+}
+
+
+
+struct MainView: View {
+    
     @ObservedObject var weatherVM: WeatherViewModel = WeatherViewModel()
     @ObservedObject var locationManager = LocationManager()
     @ObservedObject var error: Error = Error()
@@ -21,7 +34,12 @@ struct ContentView: View {
     @State var refreshed: Bool = false
     @State private var backGroundColor = Color.blue
     
-    
+    func isAuthorized() -> Bool {
+        guard let exposedLocation = self.locationManager.exposedLocation else {
+            return false
+        }
+        return true
+    }
     
     init() {
         
@@ -30,11 +48,9 @@ struct ContentView: View {
         
     }
     
-    
     var body: some View {
-        
         ZStack{
-            // error view is put on top of zstack 
+            // error view is put on top of zstack
             ErrorAlert(displayError: $error.displayError, errorMessage: $error.errorMessage, errorType: $error.errorType)
             
             MainStackView(weatherVM: weatherVM, isNight: isNight, locationManager: locationManager, imageName: imageName, error: error, refreshViewOpacity: $refreshViewOpacity, textFieldViewOpacty: $textFieldViewOpacity, refreshed: $refreshed, backGroundColor: $backGroundColor)
@@ -65,15 +81,9 @@ struct ContentView: View {
         // used for loading app
         .opacity(coverViewOpactity)
     }
-    
-    
-    func isAuthorized() -> Bool {
-        guard let exposedLocation = self.locationManager.exposedLocation else {
-            return false
-        }
-        return true
-    }
 }
+
+
 
 
 

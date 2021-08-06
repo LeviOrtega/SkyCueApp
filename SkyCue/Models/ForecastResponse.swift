@@ -8,21 +8,18 @@
 import Foundation
 
 
-// MARK: - Welcome
 struct ForecastResponse: Decodable {
     var daily: [DailyForecast]
 }
 
-// MARK: - Daily
 struct DailyForecast: Decodable {
-    var dt: Int?
+    //var dt: Int?
     var temp: Temp?
-    var humidity: Int?
+    var humidity: Int = 0
     var weather: [ForecastWeather]?
-    var rain: Double?
+    //var rain: Double?
 }
 
-// MARK: - Temp
 struct Temp: Decodable {
     var day, min, max, night: Double?
     var eve, morn: Double?
@@ -31,5 +28,5 @@ struct Temp: Decodable {
 // MARK: - Weather
 struct ForecastWeather: Decodable {
     var id: Int?
-    var main, weatherDescription, icon: String?
+    var main, description, icon: String?
 }
