@@ -26,7 +26,7 @@ struct MainStackView: View {
     
     var body: some View{
         ZStack{
-            MainContentView(weatherVM: self.weatherVM, isNight: self.isNight, locationManager: self.locationManager, imageName: self.imageName, error: self.error, refreshViewOpacity: self.$refreshViewOpacity, textFieldViewOpacty: self.$textFieldViewOpacty, refreshed: self.$refreshed)
+            MainContentView(weatherVM: self.weatherVM, isNight: self.isNight, locationManager: self.locationManager, imageName: self.imageName, error: self.error, refreshViewOpacity: self.$refreshViewOpacity, textFieldViewOpacty: self.$textFieldViewOpacty, refreshed: self.$refreshed, backGroundColor: self.$backGroundColor)
             
             
         }.foregroundColor(.white)
@@ -123,20 +123,26 @@ struct MainContentView: View {
     @Binding var refreshViewOpacity: Double
     @Binding var textFieldViewOpacty: Double
     @Binding var refreshed: Bool
+    @Binding var backGroundColor: Color
     
     
     var body: some View {
+        
         VStack(alignment: .center){
-            Spacer()
             
             
+           
+            
+            //ScrollView{
             HStack{
                 
                 VStack(alignment: .center){
                     ImageView(weatherVM: self.weatherVM, imageName: imageName.correlateName(uncorrelatedName: self.weatherVM.main))
                     DescriptionView(weatherVM: self.weatherVM)
                     
-                }.padding(.all)
+                }.scaledToFill()
+                
+                .padding(.all)
                 .opacity(0.8)
                 
                 
@@ -152,22 +158,21 @@ struct MainContentView: View {
             .opacity(refreshViewOpacity)
             
             TextBoxView(weatherVM: self.weatherVM, isNight: self.isNight, refreshed: $refreshed, textFieldViewOpacty: $textFieldViewOpacty)
-            
+           
             InfoView(weatherVM: weatherVM)
                 .opacity(refreshViewOpacity)
             
             
             
-            ForecastView(weatherVM: self.weatherVM, imageName: self.imageName)
-                .opacity(refreshViewOpacity)
+            ForecastView(weatherVM: self.weatherVM, imageName: self.imageName, backGroundColor: self.$backGroundColor, refreshViewOpacity: self.$refreshViewOpacity)
             
             
             
-            Spacer()
+            //}
             
             RefreshAndLocateView(locationManager: locationManager, weatherVM: weatherVM, isNight: isNight, error: error, refreshed: $refreshed, textFieldViewOpacty: $textFieldViewOpacty)
             
-        }.padding(1)
+        }.padding(.top, 50)
         
         
         

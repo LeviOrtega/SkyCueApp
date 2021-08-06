@@ -33,12 +33,13 @@ class WeatherViewModel: ObservableObject {
     }
     
     
-    func getDayHumidity(dayIndex: Int) -> Int {
+    func getDayHumidity(dayIndex: Int) -> String {
         if dayIndex >= self.dailyForecast.count  {
-            return 0
+            return ""
         }
         else {
-            return self.dailyForecast[dayIndex].humidity
+            var hum = self.dailyForecast[dayIndex].humidity
+            return String(hum)
         }
     }
     

@@ -15,6 +15,15 @@ func getTimeInfo(isNight: IsNight, weatherVM: WeatherViewModel){
     
 }
 
+func getDayOfWeek(weatherVM: WeatherViewModel) -> String{
+    let date = Date()
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "EEE"
+    dateFormatter.timeZone = TimeZone(secondsFromGMT: weatherVM.timez)
+    let localDate = dateFormatter.string(from: date)
+    return localDate
+}
+
 // convert time in unix UTC to short style date
 func convertDate(timeResult: Double, weatherVM: WeatherViewModel) -> String{
     
