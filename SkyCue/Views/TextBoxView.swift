@@ -14,7 +14,7 @@ struct TextBoxView: View {
     @ObservedObject var weatherVM: WeatherViewModel
     @ObservedObject var isNight: IsNight
     @State private var keyboardHeight: CGFloat = 0
-    @State private var backGroundColor = Color.blue
+    @Binding var backGroundColor: Color
     @Binding var refreshed: Bool
     @Binding var textFieldViewOpacty: Double
 
@@ -34,19 +34,6 @@ struct TextBoxView: View {
         .multilineTextAlignment(.center)
         .opacity(textFieldViewOpacty)
         //.textFieldStyle(RoundedBorderTextFieldStyle())
-        .onChange(of: isNight.isNightTime){ change in
-            if isNight.isNightTime {
-                withAnimation(.easeInOut(duration: refreshTime)) {
-                    self.backGroundColor = Color.black
-                                }
-            }
-            else {
-                withAnimation(.easeInOut(duration: refreshTime)) {
-                    self.backGroundColor = Color.blue
-                                }
-            }
-            
-        }
         
         .background(self.backGroundColor)
         .cornerRadius(100)

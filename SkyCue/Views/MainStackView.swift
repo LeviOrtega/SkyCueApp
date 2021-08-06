@@ -85,7 +85,7 @@ struct MainStackView: View {
             
             if isNight.isNightTime {
                 withAnimation(.easeInOut(duration: refreshTime)) {
-                    self.backGroundColor = Color.black
+                    self.backGroundColor = Color(red: 25/255, green: 25/255, blue: 25/255)
                 }
             }
             else {
@@ -131,7 +131,7 @@ struct MainContentView: View {
         VStack(alignment: .center){
             
             
-           
+            
             
             //ScrollView{
             HStack{
@@ -157,8 +157,18 @@ struct MainContentView: View {
             }
             .opacity(refreshViewOpacity)
             
-            TextBoxView(weatherVM: self.weatherVM, isNight: self.isNight, refreshed: $refreshed, textFieldViewOpacty: $textFieldViewOpacty)
-           
+            ZStack{
+                HStack{
+                    Image(systemName: "magnifyingglass").padding(20)
+                        .opacity(0.9)
+                        .font(Font.title.weight(.light))
+                    Spacer()
+                }
+                
+                TextBoxView(weatherVM: self.weatherVM, isNight: self.isNight, backGroundColor: self.$backGroundColor, refreshed: $refreshed, textFieldViewOpacty: $textFieldViewOpacty)
+                
+            }
+            
             InfoView(weatherVM: weatherVM)
                 .opacity(refreshViewOpacity)
             

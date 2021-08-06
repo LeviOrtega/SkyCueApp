@@ -16,6 +16,8 @@ struct TimeView: View {
         
         VStack(alignment: .leading, spacing: 0) {
             
+                Text(getDate(weatherVM: self.weatherVM))
+                
                 Text(getTime(weatherVM: self.weatherVM))
                 
                 Text(self.weatherVM.sunrise == 0.0 ? "" : "\(convertDate(timeResult: self.weatherVM.sunrise, weatherVM: weatherVM))")
