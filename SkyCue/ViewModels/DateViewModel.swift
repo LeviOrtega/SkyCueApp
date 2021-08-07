@@ -10,7 +10,7 @@ import SwiftUI
 
 func getTimeInfo(isNight: IsNight, weatherVM: WeatherViewModel){
     
-    isNight.isNightTime = getNightTime(dateString: getTime(weatherVM: weatherVM), weatherVM: weatherVM)
+    isNight.isNightTime = getNightTime(dateString: getTime(UTC: weatherVM.timez), weatherVM: weatherVM)
     
     
 }
@@ -45,11 +45,11 @@ func convertDate(timeResult: Double, weatherVM: WeatherViewModel) -> String{
     return localDate
 }
 
-func getTime(weatherVM: WeatherViewModel) -> String {
+func getTime(UTC: Int) -> String {
     
     let formatter = DateFormatter()
     formatter.timeStyle = .short
-    formatter.timeZone = TimeZone(secondsFromGMT: weatherVM.timez)
+    formatter.timeZone = TimeZone(secondsFromGMT: UTC)
     let dateString = formatter.string(from: Date())
     return dateString
 }

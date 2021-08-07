@@ -22,6 +22,7 @@ class WeatherViewModel: ObservableObject {
     @Published var timezone: Int?
     @Published var coord = Coord()
     @Published var dailyForecast = [DailyForecast()]
+    @Published var hourlyForecast = [HourlyForecast()]
 
     
     init() {
@@ -34,7 +35,7 @@ class WeatherViewModel: ObservableObject {
     
     
     func getDayHumidity(dayIndex: Int) -> String {
-        if dayIndex >= self.dailyForecast.count  {
+        if dayIndex >= self.dailyForecast.count || self.dailyForecast.count == 1 {
             return ""
         }
         else {
@@ -44,7 +45,7 @@ class WeatherViewModel: ObservableObject {
     }
     
     func getDayDescription(dayIndex: Int) -> String {
-        if dayIndex >= self.dailyForecast.count  {
+        if dayIndex >= self.dailyForecast.count || self.dailyForecast.count == 1 {
             return ""
         }
         else {
@@ -53,7 +54,7 @@ class WeatherViewModel: ObservableObject {
     }
     
     func getDayMainDescription(dayIndex: Int) -> String {
-        if dayIndex >= self.dailyForecast.count  {
+        if dayIndex >= self.dailyForecast.count || self.dailyForecast.count == 1  {
             return ""
         }
         else {
@@ -62,12 +63,52 @@ class WeatherViewModel: ObservableObject {
     }
     
     func getDayTemp(dayIndex: Int) -> String {
-        if dayIndex >= self.dailyForecast.count  {
+        if dayIndex >= self.dailyForecast.count || self.dailyForecast.count == 1 {
             return ""
         }
         else {
             var temp = self.dailyForecast[dayIndex].temp?.day
             return String(format: "%.0f", temp!)
+        }
+    }
+    
+    
+    func getHourlyDescription(hourIndex: Int) -> String {
+        if hourIndex >= self.hourlyForecast.count || self.hourlyForecast.count == 1 {
+            return ""
+        }
+        else {
+            return self.hourlyForecast[hourIndex].weather![0].description!
+        }
+    }
+    
+    func getHourlyMainDescription(hourIndex: Int) -> String {
+        if hourIndex >= self.hourlyForecast.count || self.hourlyForecast.count == 1 {
+            return ""
+        }
+        else {
+            return self.hourlyForecast[hourIndex].weather![0].main!
+        }
+    }
+    
+    func getHourlyTemp(hourIndex: Int) -> String {
+        if hourIndex >= self.hourlyForecast.count || self.hourlyForecast.count == 1 {
+            return ""
+        }
+        else {
+            var temp = self.hourlyForecast[hourIndex].temp
+            return String(format: "%.0f", temp!)
+        }
+    }
+    
+    
+    func getHourlyTime(hourIndex: Int) -> Int {
+        if hourIndex >= self.hourlyForecast.count || self.hourlyForecast.count == 1 {
+            return 0
+        }
+        else {
+            return self.hourlyForecast[hourIndex].dt!
+           
         }
     }
     
@@ -193,11 +234,20 @@ class WeatherViewModel: ObservableObject {
     }
     
     private func fetchForecast(lat: Double, lon: Double){
-        self.forecastService.getForecast(lat: lat, lon: lon) { dailyForecast in
+        self.forecastService.getForecast(lat: lat, lon: lon) { (dailyForecast, hourlyForecast) in
             
             if let d = dailyForecast {
                 DispatchQueue.main.async{
                     self.dailyForecast = d
+                }
+                
+                
+            }
+            
+            
+            if let h = hourlyForecast {
+                DispatchQueue.main.async{
+                    self.hourlyForecast = h
                 }
                 
                 

@@ -16,7 +16,7 @@ class ForecastService{
     
     func getForecast(lat: Double, lon: Double,
                     
-                    completion: @escaping ([DailyForecast]?) -> ())
+                    completion: @escaping ([DailyForecast]?, [HourlyForecast]?) -> ())
     
     {
         
@@ -24,10 +24,10 @@ class ForecastService{
         
         // api call
         // we do not care about current, minutely, or hourly
-        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/onecall?lat=\(lat)&lon=\(lon)&exclude=current,minutely,hourly,alerts&appid=bd9fb8bfb9b56f8e978f9b4bfffb5092&units=imperial")
+        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/onecall?lat=\(lat)&lon=\(lon)&exclude=current,minutely,alerts&appid=bd9fb8bfb9b56f8e978f9b4bfffb5092&units=imperial")
         
         else {
-            completion(nil)
+            completion(nil, nil)
             
             return
         }
@@ -38,7 +38,7 @@ class ForecastService{
             
             guard let data = data, error == nil
             else {
-                completion(nil)
+                completion(nil, nil)
 
                 return
             }
@@ -48,10 +48,11 @@ class ForecastService{
             if let value = forecastResponse {
                 
                 let dailyForecast = value.daily
-                completion(dailyForecast)
+                let hourlyForecast = value.hourly
+                completion(dailyForecast, hourlyForecast)
                 
             }else{
-                completion(nil)
+                completion(nil, nil)
 
                 
             }

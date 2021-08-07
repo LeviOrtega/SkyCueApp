@@ -15,10 +15,11 @@ struct TimeView: View {
     var body: some View {
         
         VStack(alignment: .leading, spacing: 0) {
+            Spacer()
             
-                Text(getDate(weatherVM: self.weatherVM))
+            Text(getDate(weatherVM: self.weatherVM))
                 
-                Text(getTime(weatherVM: self.weatherVM))
+            Text(getTime(UTC: weatherVM.timez))
                 
                 Text(self.weatherVM.sunrise == 0.0 ? "" : "\(convertDate(timeResult: self.weatherVM.sunrise, weatherVM: weatherVM))")
     
