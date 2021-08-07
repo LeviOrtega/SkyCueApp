@@ -39,7 +39,7 @@ class WeatherViewModel: ObservableObject {
             return ""
         }
         else {
-            var hum = self.dailyForecast[dayIndex].humidity
+            let hum = self.dailyForecast[dayIndex].humidity
             return String(hum)
         }
     }
@@ -96,18 +96,18 @@ class WeatherViewModel: ObservableObject {
             return ""
         }
         else {
-            var temp = self.hourlyForecast[hourIndex].temp
+            let temp = self.hourlyForecast[hourIndex].temp
             return String(format: "%.0f", temp!)
         }
     }
     
     
-    func getHourlyTime(hourIndex: Int) -> Int {
+    func getHourlyTime(hourIndex: Int) -> Double {
         if hourIndex >= self.hourlyForecast.count || self.hourlyForecast.count == 1 {
             return 0
         }
         else {
-            return self.hourlyForecast[hourIndex].dt!
+            return Double(self.hourlyForecast[hourIndex].dt!)
            
         }
     }

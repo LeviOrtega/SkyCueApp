@@ -8,9 +8,9 @@
 import Foundation
 import SwiftUI
 
-func getTimeInfo(isNight: IsNight, weatherVM: WeatherViewModel){
+func getTimeInfo(isNight: IsNight, weatherVM: WeatherViewModel, dateString: String){
     
-    isNight.isNightTime = getNightTime(dateString: getTime(UTC: weatherVM.timez), weatherVM: weatherVM)
+    isNight.isNightTime = getNightTime(dateString: dateString, weatherVM: weatherVM)
     
     
 }

@@ -15,7 +15,10 @@ struct TimeView: View {
     var body: some View {
         
         VStack(alignment: .leading, spacing: 0) {
-            Spacer()
+            
+            
+            Text(self.weatherVM.country == "" ? ""
+                    :"\(self.weatherVM.country)")
             
             Text(getDate(weatherVM: self.weatherVM))
                 

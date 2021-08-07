@@ -16,12 +16,7 @@ struct InfoView: View {
     
         HStack{
   
-            HStack{
-                Image(systemName: "globe")
-                Text(self.weatherVM.country == "" ? ""
-                        :"\(self.weatherVM.country)")
-                
-            }
+            
             
             HStack{
                 Image(systemName: "thermometer")
@@ -40,6 +35,7 @@ struct InfoView: View {
       
         }.opacity(0.7)
         .font(Font.title.weight(.light))
+        .scaledToFill()
         
         
     }

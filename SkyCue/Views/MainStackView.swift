@@ -27,6 +27,8 @@ struct MainStackView: View {
     var body: some View{
         ZStack{
             MainContentView(weatherVM: self.weatherVM, isNight: self.isNight, locationManager: self.locationManager, imageName: self.imageName, error: self.error, refreshViewOpacity: self.$refreshViewOpacity, textFieldViewOpacty: self.$textFieldViewOpacty, refreshed: self.$refreshed, backGroundColor: self.$backGroundColor)
+               
+                .padding(.init(top: 20, leading: 5, bottom: 5, trailing: 5) )
             
             
         }.foregroundColor(.white)
@@ -106,7 +108,7 @@ struct MainStackView: View {
     func refresh(){
         print("Refreshing")
         weatherVM.search()
-        getTimeInfo(isNight: self.isNight, weatherVM: self.weatherVM)
+        getTimeInfo(isNight: self.isNight, weatherVM: self.weatherVM, dateString: getTime(UTC: weatherVM.timez))
     }
     
 }
@@ -132,30 +134,45 @@ struct MainContentView: View {
             
             Spacer()
             
-            
+            ZStack{
             //ScrollView{
             HStack{
                 
-                VStack(alignment: .center){
-                    ImageView(weatherVM: self.weatherVM, imageName: imageName.correlateName(uncorrelatedName: self.weatherVM.main))
+                VStack(alignment: .center, spacing: 0){
+                    ImageView(weatherVM: self.weatherVM, imageName: imageName.correlateName(uncorrelatedName: self.weatherVM.main, isNightTime: self.isNight.isNightTime))
+                    Text(self.weatherVM.temperature == "" ? ""
+                            :"\(self.weatherVM.temperature) \u{00B0}F")
+                        .font(Font.largeTitle.weight(.light))
                     DescriptionView(weatherVM: self.weatherVM)
                     
                 }.scaledToFill()
-                
-                .padding(.all)
+                .padding(.leading, 10)
                 .opacity(0.8)
-                
-                
+            
+                Spacer()
+                    
                 HStack{
                     TimeImageView()
                     TimeView(weatherVM: self.weatherVM)
                 }
-                .opacity(0.8)
+                
                 .font(Font.headline.weight(.light))
-                .padding(.leading)
+                .scaledToFill()
+                .padding(.trailing, 15)
+                .opacity(0.8)
+                
                 
             }
+    
+            
             .opacity(refreshViewOpacity)
+            .padding(35)
+            
+            }
+            .background(backGroundColor)
+            .cornerRadius(50)
+            
+            
             
             ZStack{
                 HStack{
@@ -164,17 +181,22 @@ struct MainContentView: View {
                         .font(Font.title.weight(.light))
                     Spacer()
                 }
+
+                TextBoxView(weatherVM: self.weatherVM, isNight: self.isNight, refreshed: $refreshed, textFieldViewOpacty: $textFieldViewOpacty, backGroundColor: self.$backGroundColor)
                 
-                TextBoxView(weatherVM: self.weatherVM, isNight: self.isNight, backGroundColor: self.$backGroundColor, refreshed: $refreshed, textFieldViewOpacty: $textFieldViewOpacty)
+                    
+                   
+                    
                 
             }
-            
-            InfoView(weatherVM: weatherVM)
-                .opacity(refreshViewOpacity)
-            
+            .background(self.backGroundColor)
+            .cornerRadius(100)
             
             
-            ForecastView(weatherVM: self.weatherVM, imageName: self.imageName, backGroundColor: self.$backGroundColor, refreshViewOpacity: self.$refreshViewOpacity)
+            
+            
+            
+            ForecastView(weatherVM: self.weatherVM, imageName: self.imageName, isNight: self.isNight, backGroundColor: self.$backGroundColor, refreshViewOpacity: self.$refreshViewOpacity)
             
             
             
@@ -182,7 +204,7 @@ struct MainContentView: View {
             
             Spacer()
             
-            RefreshAndLocateView(locationManager: locationManager, weatherVM: weatherVM, isNight: isNight, error: error, refreshed: $refreshed, textFieldViewOpacty: $textFieldViewOpacty)
+            RefreshAndLocateView(locationManager: locationManager, weatherVM: weatherVM, isNight: isNight, error: error, refreshed: $refreshed, textFieldViewOpacty: $textFieldViewOpacty, backGroundColor: self.$backGroundColor)
             
         }.padding(.top, 50)
         
@@ -200,14 +222,18 @@ struct RefreshAndLocateView: View {
     @ObservedObject var weatherVM: WeatherViewModel
     @ObservedObject var isNight: IsNight
     @ObservedObject var error: Error
+    
     @Binding var refreshed: Bool
     @Binding var textFieldViewOpacty: Double
+    @Binding var backGroundColor: Color
+
     
     let refreshTime = 0.3
     
     var body: some View {
         HStack{
-            
+           
+            ZStack{
             Button(action: {
                 // this is the only time that we use the onUserDemand as its when the user actually presses the locate button
                 withAnimation(.easeInOut(duration: refreshTime)) {
@@ -234,21 +260,35 @@ struct RefreshAndLocateView: View {
             }){
                 Image(systemName: "location")
             }
-            .padding(.leading)
+            
+                
+            }
+            .frame(width: 35, height: 35)
+            .scaledToFill()
+            .background(backGroundColor)
+            .cornerRadius(50)
+         
             
             Spacer()
-            
+            ZStack{
             Button(action: {
                 refreshed.toggle()
             }){
                 Image(systemName: "arrow.clockwise")
                 
             }
-            .padding(.trailing)
+            
         }
+            .frame(width: 35, height: 35)
+            .scaledToFill()
+            .background(backGroundColor)
+            .cornerRadius(50)
+            
+    }
         .opacity(0.7)
         .font(Font.headline.weight(.light))
     }
+    
     
     
 }

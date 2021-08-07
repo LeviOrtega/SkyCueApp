@@ -10,7 +10,6 @@ import SwiftUI
 
 struct ForecastImageView: View {
     
-    @ObservedObject var weatherVM: WeatherViewModel
     var imageName: String
     
     

@@ -11,25 +11,17 @@ import SwiftUI
 
 class ImageName: ObservableObject{
     
-    var isNight: IsNight
-    
-    init(){
-        isNight = IsNight()
-    }
+    var imageName: String = ""
+  
  
-    
-    func setNight(isNight: IsNight){
-        self.isNight = isNight
-    }
-    
-    func correlateName(uncorrelatedName: String) -> String {
+    func correlateName(uncorrelatedName: String, isNightTime: Bool) -> String {
         
-        let imageDict = ["Clear": "\(isNight.isNightTime ? "moon" : "sun.max")",
-                         "Clouds": "\(isNight.isNightTime ? "cloud.moon" : "cloud.sun")",
-                         "Rain": "\(isNight.isNightTime ? "cloud.moon.rain" : "cloud.sun.rain")",
-                         "Thunderstorm" : "\(isNight.isNightTime ? "cloud.moon.bolt" : "cloud.sun.bolt")",
-                         "Haze": "\(isNight.isNightTime ? "cloud.fog" : "sun.haze")",
-                         "Fog": "\(isNight.isNightTime ? "cloud.fog" : "sun.haze")",
+        let imageDict = ["Clear": "\(isNightTime ? "moon" : "sun.max")",
+                         "Clouds": "\(isNightTime ? "cloud.moon" : "cloud.sun")",
+                         "Rain": "\(isNightTime ? "cloud.moon.rain" : "cloud.sun.rain")",
+                         "Thunderstorm" : "\(isNightTime ? "cloud.moon.bolt" : "cloud.sun.bolt")",
+                         "Haze": "\(isNightTime ? "cloud.fog" : "sun.haze")",
+                         "Fog": "\(isNightTime ? "cloud.fog" : "sun.haze")",
                          "Drizzle": "cloud.drizzle",
                          "Snow": "snow",
                          "Smoke": "smoke",
@@ -38,7 +30,7 @@ class ImageName: ObservableObject{
         
         ]
         
-        var imageName: String = ""
+        
         
         // force unwrap to avoid "optional"
         

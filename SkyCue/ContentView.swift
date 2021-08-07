@@ -41,7 +41,7 @@ struct MainView: View {
     init() {
         
         self.error = self.weatherVM.weatherService.error
-        self.imageName.setNight(isNight: self.isNight)
+        
         
     }
     

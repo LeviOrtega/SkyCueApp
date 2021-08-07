@@ -15,6 +15,7 @@ struct TimeImageView: View {
     var body: some View {
         // center images together
         VStack(alignment: .center, spacing: 5){
+            Image(systemName: "globe")
             Image(systemName: "calendar")
             Image(systemName: "clock")
             Image(systemName: "sunrise")
