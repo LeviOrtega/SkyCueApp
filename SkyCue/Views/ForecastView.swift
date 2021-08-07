@@ -149,7 +149,7 @@ struct WeeklyForecastView: View{
                         
                     }.opacity(0.8)
                     .padding(5)
-                    .frame(width: 70, height: 100, alignment: .center)
+                    .frame(width: 80, height: 100, alignment: .center)
                     
                 }.padding()
                 .opacity(self.refreshViewOpacity)
