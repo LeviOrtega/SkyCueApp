@@ -11,18 +11,18 @@ class DayOfWeek{
     
     
     let dayStringDict = ["Mon" : 0,
-                         "Tues": 1,
+                         "Tue": 1,
                          "Wed": 2,
-                         "Thurs": 3,
+                         "Thu": 3,
                          "Fri": 4,
                          "Sat": 5,
                          "Sun": 6
     ]
     
     let dayIntDict = [0: "Mon",
-                      1: "Tues",
+                      1: "Tue",
                       2: "Wed",
-                      3: "Thurs",
+                      3: "Thu",
                       4: "Fri",
                       5: "Sat",
                       6: "Sun"
