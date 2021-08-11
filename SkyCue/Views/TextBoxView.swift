@@ -14,7 +14,6 @@ struct TextBoxView: View {
     
     @ObservedObject var weatherVM: WeatherViewModel
     @ObservedObject var isNight: IsNight
-    @State private var keyboardHeight: CGFloat = 0
     @Binding var refreshed: Bool
     @Binding var refreshViewOpacity: Double
     @Binding var backGroundColor: Color
@@ -22,19 +21,28 @@ struct TextBoxView: View {
 
     
     var body: some View {
-        TextField("Location", text: self.$weatherVM.cityName){
-            
-            print("Searching location: \(weatherVM.cityName)")
-            refreshed.toggle()
-            
-            
-        }.padding()
-        .font(Font.largeTitle.weight(.light))
-        .multilineTextAlignment(.center)
-        .opacity(refreshViewOpacity)
-        //.textFieldStyle(RoundedBorderTextFieldStyle())
-        .background(self.backGroundColor)
-        .cornerRadius(100)
+        
+        HStack {
+            HStack {
+                Image(systemName: "magnifyingglass")
+
+                TextField("Search", text: self.$weatherVM.cityName){
+                    self.refreshed.toggle()
+                }
+                    .foregroundColor(.primary)
+
+                
+            }
+            .padding(EdgeInsets(top: 4, leading: 8, bottom: 4, trailing: 8))
+            .foregroundColor(.secondary)
+            .background(Color(.secondarySystemBackground))
+            .cornerRadius(10.0)
+        }
+        .padding(.horizontal)
+        //.background(self.backGroundColor)
+
+
+       
         
         
         

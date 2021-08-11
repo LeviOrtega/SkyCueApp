@@ -16,7 +16,7 @@ class ImageName: ObservableObject{
  
     func correlateName(uncorrelatedName: String, isNightTime: Bool) -> String {
         
-        let imageDict = ["Clear": "\(isNightTime ? "moon" : "sun.max")",
+        let imageDict = ["Clear": "\(isNightTime ? "moon.stars" : "sun.max")",
                          "Clouds": "\(isNightTime ? "cloud.moon" : "cloud.sun")",
                          "Rain": "\(isNightTime ? "cloud.moon.rain" : "cloud.sun.rain")",
                          "Thunderstorm" : "\(isNightTime ? "cloud.moon.bolt" : "cloud.sun.bolt")",

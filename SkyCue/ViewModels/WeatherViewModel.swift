@@ -23,6 +23,7 @@ class WeatherViewModel: ObservableObject {
     @Published var coord = Coord()
     @Published var dailyForecast = [DailyForecast()]
     @Published var hourlyForecast = [HourlyForecast()]
+    @Published var currentForecast = CurrentForecast()
 
     
     init() {
@@ -212,6 +213,15 @@ class WeatherViewModel: ObservableObject {
             return 0.0
         }
     }
+    
+    var uvi: String {
+        if let u = self.currentForecast.uvi {
+            return String(format: "%.0f", u)
+        }
+        else{
+            return ""
+        }
+    }
 
 
     
@@ -234,7 +244,7 @@ class WeatherViewModel: ObservableObject {
     }
     
     private func fetchForecast(lat: Double, lon: Double){
-        self.forecastService.getForecast(lat: lat, lon: lon) { (dailyForecast, hourlyForecast) in
+        self.forecastService.getForecast(lat: lat, lon: lon) { (dailyForecast, hourlyForecast, currentForecast) in
             
             if let d = dailyForecast {
                 DispatchQueue.main.async{
@@ -248,6 +258,14 @@ class WeatherViewModel: ObservableObject {
             if let h = hourlyForecast {
                 DispatchQueue.main.async{
                     self.hourlyForecast = h
+                }
+                
+                
+            }
+            
+            if let c = currentForecast {
+                DispatchQueue.main.async{
+                    self.currentForecast = c
                 }
                 
                 

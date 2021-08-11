@@ -38,7 +38,7 @@ struct HourlyForecastView: View {
 
                
                             ForecastImageView(imageName: hourImageName.correlateName(uncorrelatedName: mainDesc, isNightTime: isHourNight))
-                                .font(.system(size: 25, weight: .ultraLight, design: .default))
+                                .font(.system(size: 25, weight: .thin, design: .default))
 
 
                             

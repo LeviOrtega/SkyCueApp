@@ -13,6 +13,7 @@ class WeatherService{
     
     // instance of error we care about 
     @ObservedObject var error = Error()
+
     
     func getWeather(city: String, completion:
                         @escaping (WeatherMain?, [Weather?], WeatherSystem?, Int?, Coord?) -> ()){

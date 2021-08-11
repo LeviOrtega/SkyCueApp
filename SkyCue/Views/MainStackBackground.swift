@@ -25,16 +25,21 @@ struct MainStackBackground: View {
     
     
     var body: some View{
-        
-        self.backGroundColor
+        NavigationView{
+            self.backGroundColor
+                
+                .opacity(0.8)
+                .ignoresSafeArea(.all)
+                .overlay(
+                    MainContentView(weatherVM: self.weatherVM, isNight: self.isNight, locationManager: self.locationManager, imageName: self.imageName, error: self.error, refreshViewOpacity: self.$refreshViewOpacity, refreshed: self.$refreshed, backGroundColor: self.$backGroundColor, refreshTime: self.$refreshTime))
+                .foregroundColor(.white)
             
-            .opacity(0.8)
-            .ignoresSafeArea(.all)
-            .overlay(
-                MainContentView(weatherVM: self.weatherVM, isNight: self.isNight, locationManager: self.locationManager, imageName: self.imageName, error: self.error, refreshViewOpacity: self.$refreshViewOpacity, refreshed: self.$refreshed, backGroundColor: self.$backGroundColor, refreshTime: self.$refreshTime))
-            .foregroundColor(.white)
-        
-        
+            
+            
+            // remove empty space of navigation bar at the top
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
+        }
         
     }
     

@@ -11,6 +11,7 @@ import Foundation
 struct ForecastResponse: Decodable {
     var daily: [DailyForecast]
     var hourly: [HourlyForecast]
+    var current: CurrentForecast
 }
 
 struct DailyForecast: Decodable {
@@ -26,6 +27,10 @@ struct HourlyForecast: Decodable {
     var temp: Double?
     var weather: [Weather]?
 
+}
+
+struct CurrentForecast: Decodable {
+    var uvi: Double?
 }
 
 struct Temp: Decodable {

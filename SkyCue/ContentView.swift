@@ -53,6 +53,7 @@ struct ContentView: View {
             
             
         }.onAppear(){
+            print("hi")
             // if the user did not authorize location use, we will provide a random city to lookup upon app start
             if isAuthorized() == false {
                 
@@ -100,7 +101,7 @@ struct ContentView: View {
             
             if isNight.isNightTime {
                 withAnimation(.easeInOut(duration: refreshTime)) {
-                    self.backGroundColor = Color(red: 25/255, green: 25/255, blue: 25/255)
+                    self.backGroundColor = Color.black //Color(red: 255/255, green: 25/255, blue: 25/255)
                 }
             }
             else {

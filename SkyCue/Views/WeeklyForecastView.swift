@@ -16,6 +16,7 @@ struct WeeklyForecastView: View{
     @Binding var backGroundColor: Color
     @Binding var refreshViewOpacity: Double
     var dayOfWeek = DayOfWeek()
+    var hStackWidth = UIScreen.main.bounds.width > 720 ? UIScreen.main.bounds.width : 720
     
     
     var body: some View{
@@ -38,7 +39,7 @@ struct WeeklyForecastView: View{
                                 
                                 
                                 ForecastImageView(imageName: self.imageName.correlateName(uncorrelatedName: mainDesc, isNightTime: self.isNight.isNightTime))
-                                    .font(.system(size: 25, weight: .ultraLight, design: .default))
+                                    .font(.system(size: 25, weight: .thin, design: .default))
                                 
                                 
                                 
@@ -56,18 +57,14 @@ struct WeeklyForecastView: View{
                             }
                             
                         }
-                        //.padding(5)
-                        //.frame(width: 100, height: 90, alignment: .center)
+            
                         .frame(minWidth: 0, idealWidth: 80, maxWidth:80 , minHeight: 90, idealHeight: 120, maxHeight: 120, alignment: .center)
                         
-                        
-                        
-                        
-                        
+
                     } //HStack
                     .padding()
                     .opacity(self.refreshViewOpacity)
-                    .frame(minWidth: 0, idealWidth: (UIScreen.main.bounds.width > 720 ? UIScreen.main.bounds.width : 720), maxWidth: UIScreen.main.bounds.width)
+                    .frame(minWidth: 0, idealWidth: hStackWidth, maxWidth: .infinity)
                     
                     
                 }// for each
