@@ -33,10 +33,7 @@ struct InfoView: View {
                 
             }
       
-        }.opacity(0.7)
+        }
         .font(Font.title.weight(.light))
-        .scaledToFill()
-        
-        
     }
 }

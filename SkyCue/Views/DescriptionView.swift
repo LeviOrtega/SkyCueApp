@@ -16,8 +16,8 @@ struct DescriptionView: View {
         Text(self.weatherVM.description == "" ? ""
                 :"\(self.weatherVM.description.uppercased())")
             .font(Font.callout.weight(.light))
-            .multilineTextAlignment(.center)
-            .lineLimit(nil)
+           
+            
         
     }
     

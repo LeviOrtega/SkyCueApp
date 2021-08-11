@@ -18,9 +18,10 @@ struct ImageView: View {
             Image(systemName: imageName)
                 .resizable()
                 .scaledToFit()
-                .frame(width: 100, height: 100, alignment: .center)
-                .opacity(0.8)
+                .frame(minWidth: 50, idealWidth: 100, maxWidth: 150, minHeight: 50, idealHeight: 100, maxHeight: 150, alignment: .center)
+                //.frame(width: 100, height: 100, alignment: .center)
                 .font(Font.title.weight(.ultraLight))
+                .padding(5)
         }
     }
     
