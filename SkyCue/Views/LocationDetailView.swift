@@ -23,7 +23,7 @@ struct LocationDetailView: View {
             }
             HStack{
                 ImageDetail(imageName: "calendar")
-                Text(getDate(weatherVM: self.weatherVM))
+                Text(self.weatherVM.timez == 0 ? "" :  getDate(weatherVM: self.weatherVM))
             }
             HStack{
                 ImageDetail(imageName: "clock")

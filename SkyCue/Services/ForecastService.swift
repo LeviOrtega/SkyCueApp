@@ -25,7 +25,12 @@ class ForecastService{
         
         // api call
         // we do not care about current, minutely, or hourly
-        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/onecall?lat=\(lat)&lon=\(lon)&exclude=minutely,alerts&appid=bd9fb8bfb9b56f8e978f9b4bfffb5092&units=imperial")
+        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/onecall?lat=\(lat)&lon=\(lon)&exclude=minutely,alerts&appid=df67420b27963698a63e86afcf794f4e&units=imperial")
+        
+        //guard let url = URL(string: "https://api.openweathermap.org/data/2.5/onecall?lat=\(lat)&lon=\(lon)&exclude=minutely,alerts&appid=bd9fb8bfb9b56f8e978f9b4bfffb5092&units=imperial")
+        
+        
+        
         
         else {
             completion(nil, nil, nil)

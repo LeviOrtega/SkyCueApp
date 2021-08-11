@@ -24,8 +24,11 @@ struct SlideMenu: View {
 
     
     
+    
     let width: CGFloat
     let height: CGFloat
+    
+    
     
     
     private func deleteRow(at indexSet: IndexSet) {
@@ -38,17 +41,19 @@ struct SlideMenu: View {
                 EmptyView()
             }
             
-            .background(backGroundColor.opacity(0.5))
+            .background(backGroundColor.opacity(0.6))
             .opacity(self.menuOpen ? 1.0 : 0.0)
             .animation(Animation.easeIn.delay(0.25))
             .onTapGesture {
                 self.menuOpen.toggle()
+               
             }
             
             VStack{
                 
                 
                 TextBoxView(weatherVM: self.weatherVM, isNight: self.isNight, refreshed: $refreshed, refreshViewOpacity: $refreshViewOpacity, backGroundColor: self.$backGroundColor, refreshTime: self.$refreshTime, menuOpen: self.$menuOpen)
+                    
                 
                 VStack{
                     
@@ -59,12 +64,21 @@ struct SlideMenu: View {
                     List{
                         
                         ForEach(weatherVM.locationNameList) { locName in
+                            
                         
                             LocationButton(weatherVM: self.weatherVM, menuOpen: self.$menuOpen, refreshTime: self.$refreshTime, refreshViewOpacity: self.$refreshViewOpacity, locationName: locName.name!)
+                               
+                            
+                                
+                                
                         
                         }
+                        
+                        
                         .onDelete(perform: self.deleteRow)
                     }
+                    
+                    
                     
                     
                     
@@ -75,7 +89,7 @@ struct SlideMenu: View {
                 .background(Color(.secondarySystemBackground))
                 .cornerRadius(10.0)
             }
-            .offset(y: self.menuOpen ?  self.height/2: self.height*2)
+            .offset(y: self.menuOpen ?  self.height*0.75: self.height*2)
             .animation(.default)
             
             
@@ -86,4 +100,9 @@ struct SlideMenu: View {
         .ignoresSafeArea(.all)
         
     }
+    
+   
+    
 }
+
+

@@ -68,19 +68,6 @@ struct RefreshAndLocateView: View {
 
 
 ////
-//Button(action: {
-//    
-//    self.weatherVM.cityName = randomCity()
-//    weatherVM.search()
-//    
-//}){
-//    ZStack{
-//    Image(systemName: "shuffle")
-//        
-//    }.frame(width: 35, height: 35)
-//    .scaledToFill()
-//    .background(self.backGroundColor)
-//    .cornerRadius(50)
-//}
+
 
 

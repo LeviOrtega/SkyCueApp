@@ -29,6 +29,8 @@ struct TextBoxView: View {
 
                 TextField("Search", text: self.$weatherVM.cityName){
                     
+                   
+                    
                     self.menuOpen.toggle()
                     withAnimation(.easeInOut(duration: refreshTime), {
                         self.refreshViewOpacity = 0
@@ -49,10 +51,10 @@ struct TextBoxView: View {
                             
                         })
                     }
-                    
+                 
                     
                 }// textField
-             
+                
                     .foregroundColor(.primary)
 
                 
@@ -75,3 +77,5 @@ struct TextBoxView: View {
     }
     
 }
+
+

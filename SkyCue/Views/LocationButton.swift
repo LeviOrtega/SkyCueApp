@@ -16,7 +16,7 @@ struct LocationButton: View {
     @Binding var refreshTime: Double
     @Binding var refreshViewOpacity: Double
     var locationName: String = ""
-//    var temp: String = ""
+    var temp: String = ""
     
     var body: some View{
         HStack{
@@ -50,9 +50,26 @@ struct LocationButton: View {
             Text(locationName)
                 .font(Font.headline.weight(.light))
         }
+          
+            Text(temp)
             
         }
         
     }
     
 }
+
+//
+//Button(action: {
+//    
+//    
+//    
+//}){
+//    
+//    Image(systemName: "shuffle")
+//        .resizable()
+//        
+//    .frame(width: 20, height: 20)
+//    .scaledToFit()
+//    
+//}

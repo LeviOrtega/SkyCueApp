@@ -13,7 +13,7 @@ class WeatherService{
     
     // instance of error we care about 
     @ObservedObject var error = Error()
-
+    
     
     func getWeather(city: String, completion:
                         @escaping (WeatherMain?, [Weather?], WeatherSystem?, Int?, Coord?) -> ()){
@@ -21,9 +21,13 @@ class WeatherService{
         
         
         // api call
-        guard let url = URL(string: "http://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=bd9fb8bfb9b56f8e978f9b4bfffb5092&units=imperial")
+        guard let url = URL(string: "http://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=df67420b27963698a63e86afcf794f4e&units=imperial")
         
-        else {
+        
+       // guard let url = URL(string: "http://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=bd9fb8bfb9b56f8e978f9b4bfffb5092&units=imperial")
+        
+        
+        else{
             
             self.error.displayError = true
             self.error.errorMessage = "Unable to connect to servers, please connect to a network."
@@ -32,6 +36,7 @@ class WeatherService{
             
             return
         }
+        
         
         
         URLSession.shared.dataTask(with: url) {
@@ -44,7 +49,7 @@ class WeatherService{
                 self.error.errorMessage = "Unable to connect to servers, please connect to a network."
                 self.error.errorType = "Network Error"
                 completion(nil, [nil], nil, nil, nil)
-
+                
                 return
             }
             
@@ -70,7 +75,7 @@ class WeatherService{
                 
                 
                 completion(nil, [nil], nil, nil, nil)
-
+                
                 
             }
             

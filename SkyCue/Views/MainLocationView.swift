@@ -36,11 +36,20 @@ struct MainLocationView: View {
                 
                 
             }
+            .onLongPressGesture {
+                self.weatherVM.cityName = randomCity()
+                weatherVM.search()
+            }
+            
+            
+           
             
             
             
             
             HStack{
+                
+                
                 Spacer()
                 Button(action: {
                     

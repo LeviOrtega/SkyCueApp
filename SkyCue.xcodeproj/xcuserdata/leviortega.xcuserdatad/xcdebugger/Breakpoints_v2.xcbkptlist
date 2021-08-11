@@ -30,8 +30,8 @@
             filePath = "SkyCue/Services/ForecastService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "getForecast(lat:lon:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,9 +46,9 @@
             filePath = "SkyCue/ViewModels/WeatherViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "280"
-            endingLineNumber = "280"
-            landmarkName = "search()"
+            startingLineNumber = "283"
+            endingLineNumber = "283"
+            landmarkName = "fetchForecast(lat:lon:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -94,8 +94,8 @@
             filePath = "SkyCue/Services/ForecastService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "getForecast(lat:lon:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -110,8 +110,8 @@
             filePath = "SkyCue/Services/ForecastService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "getForecast(lat:lon:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -126,8 +126,8 @@
             filePath = "SkyCue/Services/ForecastService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "getForecast(lat:lon:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -158,8 +158,8 @@
             filePath = "SkyCue/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "init()"
             landmarkType = "7">
          </BreakpointContent>
@@ -174,10 +174,122 @@
             filePath = "SkyCue/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "ContentView"
             landmarkType = "14">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1714A31A-5607-4D5C-B19B-72CD3EE49B6F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SkyCue/ViewModels/WeatherViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
+            landmarkName = "fetchForecast(lat:lon:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1714A31A-5607-4D5C-B19B-72CD3EE49B6F - 2c9d3dd551eed9fa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SkyCue.WeatherViewModel.fetchForecast(lat: Swift.Double, lon: Swift.Double) -&gt; ()"
+                  moduleName = "SkyCue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leviortega/Desktop/App%20Dev/Xcode/SkyCue/SkyCue/ViewModels/WeatherViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "311"
+                  endingLineNumber = "311"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  uuid = "1714A31A-5607-4D5C-B19B-72CD3EE49B6F - 261e2531c11695ce"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;SkyCue.DailyForecast&gt;&gt;, Swift.Optional&lt;Swift.Array&lt;SkyCue.HourlyForecast&gt;&gt;, Swift.Optional&lt;SkyCue.CurrentForecast&gt;) -&gt; () in SkyCue.WeatherViewModel.fetchForecast(lat: Swift.Double, lon: Swift.Double) -&gt; ()"
+                  moduleName = "SkyCue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leviortega/Desktop/App%20Dev/Xcode/SkyCue/SkyCue/ViewModels/WeatherViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "313"
+                  endingLineNumber = "313"
+                  offsetFromSymbolStart = "484">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C74DBC7D-12FA-4A30-9731-B8B86CCFC988"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SkyCue/ViewModels/WeatherViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "317"
+            endingLineNumber = "317"
+            landmarkName = "fetchWeather(by:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C74DBC7D-12FA-4A30-9731-B8B86CCFC988 - 2c55306d692e804f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SkyCue.WeatherViewModel.fetchWeather(by: Swift.String) -&gt; ()"
+                  moduleName = "SkyCue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leviortega/Desktop/App%20Dev/Xcode/SkyCue/SkyCue/ViewModels/WeatherViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "313"
+                  endingLineNumber = "313"
+                  offsetFromSymbolStart = "68">
+               </Location>
+               <Location
+                  uuid = "C74DBC7D-12FA-4A30-9731-B8B86CCFC988 - 47e289349936a7b5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;SkyCue.WeatherMain&gt;, Swift.Array&lt;Swift.Optional&lt;SkyCue.Weather&gt;&gt;, Swift.Optional&lt;SkyCue.WeatherSystem&gt;, Swift.Optional&lt;Swift.Int&gt;, Swift.Optional&lt;SkyCue.Coord&gt;) -&gt; () in SkyCue.WeatherViewModel.fetchWeather(by: Swift.String) -&gt; ()"
+                  moduleName = "SkyCue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leviortega/Desktop/App%20Dev/Xcode/SkyCue/SkyCue/ViewModels/WeatherViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "315"
+                  endingLineNumber = "315"
+                  offsetFromSymbolStart = "664">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F9A4012E-CF40-44D2-B199-2B6800E4B350"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SkyCue/Services/WeatherService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "getWeather(city:completion:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

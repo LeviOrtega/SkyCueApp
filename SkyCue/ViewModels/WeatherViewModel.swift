@@ -15,7 +15,7 @@ class WeatherViewModel: ObservableObject {
     // wrapping
     var weatherService: WeatherService!
     var forecastService: ForecastService!
-  
+    
     @Published var weatherMain = WeatherMain()
     @Published var weather = Weather()
     @Published var system = WeatherSystem()
@@ -26,7 +26,7 @@ class WeatherViewModel: ObservableObject {
     @Published var currentForecast = CurrentForecast()
     @Published var locationNameList: [LocationName]
     
-
+    
     
     init() {
         
@@ -37,10 +37,10 @@ class WeatherViewModel: ObservableObject {
             if let decoded = try? JSONDecoder().decode([LocationName].self, from: data) {
                 
                 self.locationNameList = decoded
-                    return
-                }
+                return
             }
-
+        }
+        
         self.locationNameList = []
         
         
@@ -48,16 +48,16 @@ class WeatherViewModel: ObservableObject {
     }
     
     
-  
     
-//    func getLocationNameList() -> [LocationName] {
-//        if self.locationNameList != nil {
-//            return self.locationNameList
-//        }
-//        else {
-//            return [LocationName]()
-//        }
-//    }
+    
+    //    func getLocationNameList() -> [LocationName] {
+    //        if self.locationNameList != nil {
+    //            return self.locationNameList
+    //        }
+    //        else {
+    //            return [LocationName]()
+    //        }
+    //    }
     
     
     func getDayHumidity(dayIndex: Int) -> String {
@@ -134,12 +134,12 @@ class WeatherViewModel: ObservableObject {
         }
         else {
             return Double(self.hourlyForecast[hourIndex].dt!)
-           
+            
         }
     }
     
     
-   
+    
     
     
     var temperature: String {
@@ -247,8 +247,8 @@ class WeatherViewModel: ObservableObject {
             return ""
         }
     }
-
-
+    
+    
     
     var cityName: String = ""
     
@@ -263,16 +263,19 @@ class WeatherViewModel: ObservableObject {
         
         // remove spaces
         if let city = self.cityName.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed){
-        fetchWeather(by: city)
+            fetchWeather(by: city)
         }
         if let cityLon = self.coord.lon , let cityLat = self.coord.lat {
-             fetchForecast(lat: cityLat, lon: cityLon)
+            fetchForecast(lat: cityLat, lon: cityLon)
         }
         
         
         
-    
+        
     }
+    
+    
+   
     
     private func fetchForecast(lat: Double, lon: Double){
         self.forecastService.getForecast(lat: lat, lon: lon) { (dailyForecast, hourlyForecast, currentForecast) in
@@ -305,6 +308,10 @@ class WeatherViewModel: ObservableObject {
         }
     }
     
+    func setCityName(city: String) -> String {
+        self.cityName = city
+        return self.cityName
+    }
     
     private func fetchWeather(by city: String) {
         self.weatherService.getWeather(city: city) { (mainCall, weatherCall, systemCall, timezoneCall, coordCall) in
@@ -313,7 +320,7 @@ class WeatherViewModel: ObservableObject {
                 
                 // setting on main thread 
                 DispatchQueue.main.async{
-                self.weatherMain = mainCall!
+                    self.weatherMain = mainCall!
                 }
             }
             
@@ -332,21 +339,21 @@ class WeatherViewModel: ObservableObject {
                     self.system = systemCall!
                 }
             }
-           
-        
-        if timezoneCall != nil{
             
-            // setting on main thread
-            DispatchQueue.main.async{
-            self.timezone = timezoneCall!
-            }
-        }
             
-        if coordCall != nil{
+            if timezoneCall != nil{
                 
                 // setting on main thread
                 DispatchQueue.main.async{
-                self.coord = coordCall!
+                    self.timezone = timezoneCall!
+                }
+            }
+            
+            if coordCall != nil{
+                
+                // setting on main thread
+                DispatchQueue.main.async{
+                    self.coord = coordCall!
                 }
             }
             

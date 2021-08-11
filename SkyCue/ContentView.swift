@@ -20,6 +20,8 @@ struct ContentView: View {
     @State var refreshed: Bool = false
     @State private var backGroundColor = Color.blue
     @State var menuOpen: Bool = false
+    
+    
 
 
     
@@ -55,6 +57,9 @@ struct ContentView: View {
     
     var body: some View {
         ZStack{
+            
+            
+            
             // error view is put on top of zstack
             ErrorAlert(displayError: $error.displayError, errorMessage: $error.errorMessage, errorType: $error.errorType)
             
@@ -65,10 +70,18 @@ struct ContentView: View {
             
             SlideMenu(weatherVM: self.weatherVM, isNight: self.isNight, refreshed: self.$refreshed, refreshViewOpacity: self.$refreshViewOpacity, backGroundColor: self.$backGroundColor, refreshTime: self.$refreshTime, menuOpen: self.$menuOpen, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/2)
                 .ignoresSafeArea(.keyboard)
-               
             
             
-        }.onAppear(){
+            
+        }
+        
+        
+        
+        
+        
+        
+        
+        .onAppear(){
 
             // if the user did not authorize location use, we will provide a random city to lookup upon app start
             if isAuthorized() == false {
@@ -152,7 +165,6 @@ struct ContentView: View {
             
         }
         .onChange(of: weatherVM.locationNameList.count) { count in
-            print("hello")
             weatherVM.save()
         }
         
