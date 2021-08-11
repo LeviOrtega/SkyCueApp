@@ -21,8 +21,7 @@ struct SlideMenu: View {
     @Binding var backGroundColor: Color
     @Binding var refreshTime: Double
     @Binding var menuOpen: Bool
-    
-    @Binding var locationNameList: [LocationName]
+
     
     
     let width: CGFloat
@@ -30,7 +29,7 @@ struct SlideMenu: View {
     
     
     private func deleteRow(at indexSet: IndexSet) {
-            self.locationNameList.remove(atOffsets: indexSet)
+        self.weatherVM.locationNameList.remove(atOffsets: indexSet)
         }
     
     var body: some View {
@@ -59,9 +58,9 @@ struct SlideMenu: View {
                     
                     List{
                         
-                        ForEach(locationNameList) { locName in
+                        ForEach(weatherVM.locationNameList) { locName in
                         
-                        LocationButton(weatherVM: self.weatherVM, menuOpen: self.$menuOpen, refreshTime: self.$refreshTime, refreshViewOpacity: self.$refreshViewOpacity, locationName: locName.name)
+                            LocationButton(weatherVM: self.weatherVM, menuOpen: self.$menuOpen, refreshTime: self.$refreshTime, refreshViewOpacity: self.$refreshViewOpacity, locationName: locName.name!)
                         
                         }
                         .onDelete(perform: self.deleteRow)

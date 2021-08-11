@@ -8,8 +8,8 @@
 import Foundation
 
 
-struct LocationName: Identifiable, Hashable {
+struct LocationName: Identifiable, Codable{
     
-    let name: String
-    var id: String { name }
+    let name: String?
+    var id: String { (name?.filter ({ !" \n\t\r".contains($0) }).uppercased())!}
 }

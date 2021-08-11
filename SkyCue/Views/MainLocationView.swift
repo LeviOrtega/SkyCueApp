@@ -18,7 +18,7 @@ struct MainLocationView: View {
     @Binding var backGroundColor: Color
     @Binding var refreshTime: Double
     @Binding var menuOpen: Bool
-    @Binding var locationNameList: [LocationName]
+
     
     var body: some View {
         ZStack{
@@ -45,9 +45,11 @@ struct MainLocationView: View {
                 Button(action: {
                     
                     
-                    self.locationNameList.append(LocationName(name: weatherVM.cityName))
-                    // only add unique items to the location list
-                    self.locationNameList = self.locationNameList.unique()
+                    let location = LocationName(name: weatherVM.cityName)
+                    
+                    if canAddToList(locationNameList: self.weatherVM.locationNameList, location: location){
+                        self.weatherVM.locationNameList.append(location)
+                    }
                     
                     // open location list
                     self.menuOpen.toggle()
@@ -97,3 +99,16 @@ struct MainLocationView: View {
 //    .scaledToFill()
 //}
 //.padding(5)
+
+
+func canAddToList(locationNameList: [LocationName], location: LocationName) -> Bool{
+    
+    let location = location
+    
+    for loc in locationNameList {
+        if loc.id == location.id {
+            return false
+        }
+    }
+    return true
+}

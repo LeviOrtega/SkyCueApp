@@ -22,7 +22,7 @@ struct MainContentView: View {
     @Binding var backGroundColor: Color
     @Binding var refreshTime: Double
     @Binding var menuOpen: Bool
-    @Binding var locationNameList: [LocationName]
+
     
     var body: some View {
         
@@ -70,7 +70,7 @@ struct MainContentView: View {
             .cornerRadius(50)
             
             
-            MainLocationView(weatherVM: self.weatherVM, refreshViewOpacity: self.$refreshViewOpacity, refreshed: self.$refreshed, backGroundColor: self.$backGroundColor, refreshTime: self.$refreshTime, menuOpen: self.$menuOpen, locationNameList: self.$locationNameList)
+            MainLocationView(weatherVM: self.weatherVM, refreshViewOpacity: self.$refreshViewOpacity, refreshed: self.$refreshed, backGroundColor: self.$backGroundColor, refreshTime: self.$refreshTime, menuOpen: self.$menuOpen)
             
             
             ForecastView(weatherVM: self.weatherVM, imageName: self.imageName, isNight: self.isNight, backGroundColor: self.$backGroundColor, refreshViewOpacity: self.$refreshViewOpacity)
@@ -81,7 +81,6 @@ struct MainContentView: View {
         }
         // total vstack padding
         .padding(.init(top: 20, leading: 5, bottom: 15, trailing: 5))
-        
         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         .scaledToFill()
         .opacity(0.6)

@@ -23,8 +23,7 @@ struct ContentView: View {
 
 
     
-    @State var locationNameList = [LocationName(name: "Arvada"), LocationName(name: "Tokyo"), LocationName(name: "Ho Chi Minh City")]
-    
+   
     
     
     func isAuthorized() -> Bool {
@@ -42,12 +41,17 @@ struct ContentView: View {
         getTimeInfo(isNight: self.isNight, weatherVM: self.weatherVM, dateString: getTime(UTC: weatherVM.timez))
     }
     
+    
+    
+    
     init() {
         
         // get the error object initialized in the weather service class
         self.error = self.weatherVM.weatherService.error
-
+        
     }
+
+    
     
     var body: some View {
         ZStack{
@@ -56,10 +60,10 @@ struct ContentView: View {
             
         
             
-            MainStackBackground(weatherVM: weatherVM, isNight: isNight, locationManager: locationManager, imageName: imageName, error: error, refreshViewOpacity: $refreshViewOpacity, refreshed: $refreshed, backGroundColor: $backGroundColor, refreshTime: $refreshTime, menuOpen: self.$menuOpen, locationNameList: self.$locationNameList)
+            MainStackBackground(weatherVM: weatherVM, isNight: isNight, locationManager: locationManager, imageName: imageName, error: error, refreshViewOpacity: $refreshViewOpacity, refreshed: $refreshed, backGroundColor: $backGroundColor, refreshTime: $refreshTime, menuOpen: self.$menuOpen)
                 .ignoresSafeArea(.keyboard)
             
-            SlideMenu(weatherVM: self.weatherVM, isNight: self.isNight, refreshed: self.$refreshed, refreshViewOpacity: self.$refreshViewOpacity, backGroundColor: self.$backGroundColor, refreshTime: self.$refreshTime, menuOpen: self.$menuOpen, locationNameList: self.$locationNameList, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/2)
+            SlideMenu(weatherVM: self.weatherVM, isNight: self.isNight, refreshed: self.$refreshed, refreshViewOpacity: self.$refreshViewOpacity, backGroundColor: self.$backGroundColor, refreshTime: self.$refreshTime, menuOpen: self.$menuOpen, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/2)
                 .ignoresSafeArea(.keyboard)
                
             
@@ -146,6 +150,10 @@ struct ContentView: View {
             }
             
             
+        }
+        .onChange(of: weatherVM.locationNameList.count) { count in
+            print("hello")
+            weatherVM.save()
         }
         
         // used for loading app

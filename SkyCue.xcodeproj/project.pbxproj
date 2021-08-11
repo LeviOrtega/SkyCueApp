@@ -34,7 +34,6 @@
 		FBE6275026C39A5F006364EE /* SlideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE6274F26C39A5F006364EE /* SlideMenu.swift */; };
 		FBE6275226C4407B006364EE /* LocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE6275126C4407B006364EE /* LocationButton.swift */; };
 		FBE6275426C447DD006364EE /* LocationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE6275326C447DD006364EE /* LocationName.swift */; };
-		FBE6275626C45748006364EE /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE6275526C45748006364EE /* ArrayExtension.swift */; };
 		FBE6275826C45AF0006364EE /* MainLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE6275726C45AF0006364EE /* MainLocationView.swift */; };
 		FBF0949C26B3604D00B0EB70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF0949B26B3604D00B0EB70 /* AppDelegate.swift */; };
 		FBF0949E26B3604D00B0EB70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF0949D26B3604D00B0EB70 /* SceneDelegate.swift */; };
@@ -75,7 +74,6 @@
 		FBE6274F26C39A5F006364EE /* SlideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenu.swift; sourceTree = "<group>"; };
 		FBE6275126C4407B006364EE /* LocationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationButton.swift; sourceTree = "<group>"; };
 		FBE6275326C447DD006364EE /* LocationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationName.swift; sourceTree = "<group>"; };
-		FBE6275526C45748006364EE /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		FBE6275726C45AF0006364EE /* MainLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLocationView.swift; sourceTree = "<group>"; };
 		FBF0949826B3604D00B0EB70 /* SkyCue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkyCue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBF0949B26B3604D00B0EB70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -165,7 +163,6 @@
 				FBF094A626B3604E00B0EB70 /* LaunchScreen.storyboard */,
 				FBF094A926B3604E00B0EB70 /* Info.plist */,
 				FBF094A326B3604E00B0EB70 /* Preview Content */,
-				FBE6275526C45748006364EE /* ArrayExtension.swift */,
 			);
 			path = SkyCue;
 			sourceTree = "<group>";
@@ -282,7 +279,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB0F572F26B9D74600DAEE2E /* MainStackBackground.swift in Sources */,
-				FBE6275626C45748006364EE /* ArrayExtension.swift in Sources */,
 				FBF094B426B3652400B0EB70 /* WeatherService.swift in Sources */,
 				FBF094B726B4A89400B0EB70 /* WeatherViewModel.swift in Sources */,
 				FBF0949C26B3604D00B0EB70 /* AppDelegate.swift in Sources */,

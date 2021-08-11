@@ -40,11 +40,11 @@ struct LocationDetailView: View {
                 
             }
             
-            HStack{
-                ImageDetail(imageName: "sun.min.fill")
-                Text(self.weatherVM.uvi)
-                
-            }
+//            HStack{
+//                ImageDetail(imageName: "sun.min.fill")
+//                Text(self.weatherVM.uvi)
+//                
+//            }
             
             
             

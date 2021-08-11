@@ -24,6 +24,8 @@ class WeatherViewModel: ObservableObject {
     @Published var dailyForecast = [DailyForecast()]
     @Published var hourlyForecast = [HourlyForecast()]
     @Published var currentForecast = CurrentForecast()
+    @Published var locationNameList: [LocationName]
+    
 
     
     init() {
@@ -31,8 +33,31 @@ class WeatherViewModel: ObservableObject {
         self.weatherService = WeatherService()
         self.forecastService = ForecastService()
         
+        if let data = UserDefaults.standard.data(forKey: "SavedData") {
+            if let decoded = try? JSONDecoder().decode([LocationName].self, from: data) {
+                
+                self.locationNameList = decoded
+                    return
+                }
+            }
+
+        self.locationNameList = []
+        
+        
         
     }
+    
+    
+  
+    
+//    func getLocationNameList() -> [LocationName] {
+//        if self.locationNameList != nil {
+//            return self.locationNameList
+//        }
+//        else {
+//            return [LocationName]()
+//        }
+//    }
     
     
     func getDayHumidity(dayIndex: Int) -> String {
@@ -227,6 +252,12 @@ class WeatherViewModel: ObservableObject {
     
     var cityName: String = ""
     
+    
+    func save() {
+        if let encoded = try? JSONEncoder().encode(locationNameList) {
+            UserDefaults.standard.set(encoded, forKey: "SavedData")
+        }
+    }
     
     func search() {
         

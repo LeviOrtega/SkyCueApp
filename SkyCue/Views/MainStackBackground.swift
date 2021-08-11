@@ -22,7 +22,6 @@ struct MainStackBackground: View {
     @Binding var backGroundColor: Color
     @Binding var refreshTime: Double
     @Binding var menuOpen: Bool
-    @Binding var locationNameList: [LocationName]
     
     var body: some View{
         
@@ -32,7 +31,7 @@ struct MainStackBackground: View {
                 .opacity(0.8)
                 .ignoresSafeArea(.all)
                 .overlay(
-                    MainContentView(weatherVM: self.weatherVM, isNight: self.isNight, locationManager: self.locationManager, imageName: self.imageName, error: self.error, refreshViewOpacity: self.$refreshViewOpacity, refreshed: self.$refreshed, backGroundColor: self.$backGroundColor, refreshTime: self.$refreshTime, menuOpen: self.$menuOpen, locationNameList: self.$locationNameList)
+                    MainContentView(weatherVM: self.weatherVM, isNight: self.isNight, locationManager: self.locationManager, imageName: self.imageName, error: self.error, refreshViewOpacity: self.$refreshViewOpacity, refreshed: self.$refreshed, backGroundColor: self.$backGroundColor, refreshTime: self.$refreshTime, menuOpen: self.$menuOpen)
                        
                 
                 )
