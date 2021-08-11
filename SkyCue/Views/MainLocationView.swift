@@ -92,23 +92,6 @@ struct MainLocationView: View {
 
 
 
-//
-//Button(action: {
-//    if !self.menuOpen {
-//
-//        self.menuOpen.toggle()
-//    }
-//
-//}){
-//
-//    ZStack{
-//        Image(systemName: "magnifyingglass")
-//
-//    }.frame(width: 35, height: 35)
-//    .scaledToFill()
-//}
-//.padding(5)
-
 
 func canAddToList(locationNameList: [LocationName], location: LocationName) -> Bool{
     

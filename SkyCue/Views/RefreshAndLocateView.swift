@@ -61,13 +61,5 @@ struct RefreshAndLocateView: View {
     
     
     
+
 }
-
-
-
-
-
-////
-
-
-
