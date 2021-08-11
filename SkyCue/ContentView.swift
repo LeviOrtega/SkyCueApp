@@ -19,6 +19,13 @@ struct ContentView: View {
     @State var refreshTime: Double = 0.3
     @State var refreshed: Bool = false
     @State private var backGroundColor = Color.blue
+    @State var menuOpen: Bool = false
+
+
+    
+    @State var locationNameList = [LocationName(name: "Arvada"), LocationName(name: "Tokyo"), LocationName(name: "Ho Chi Minh City")]
+    
+    
     
     func isAuthorized() -> Bool {
         // check to see if users allowed for location services
@@ -47,13 +54,18 @@ struct ContentView: View {
             // error view is put on top of zstack
             ErrorAlert(displayError: $error.displayError, errorMessage: $error.errorMessage, errorType: $error.errorType)
             
-            MainStackBackground(weatherVM: weatherVM, isNight: isNight, locationManager: locationManager, imageName: imageName, error: error, refreshViewOpacity: $refreshViewOpacity, refreshed: $refreshed, backGroundColor: $backGroundColor, refreshTime: $refreshTime)
-                
+        
             
+            MainStackBackground(weatherVM: weatherVM, isNight: isNight, locationManager: locationManager, imageName: imageName, error: error, refreshViewOpacity: $refreshViewOpacity, refreshed: $refreshed, backGroundColor: $backGroundColor, refreshTime: $refreshTime, menuOpen: self.$menuOpen, locationNameList: self.$locationNameList)
+                .ignoresSafeArea(.keyboard)
+            
+            SlideMenu(weatherVM: self.weatherVM, isNight: self.isNight, refreshed: self.$refreshed, refreshViewOpacity: self.$refreshViewOpacity, backGroundColor: self.$backGroundColor, refreshTime: self.$refreshTime, menuOpen: self.$menuOpen, locationNameList: self.$locationNameList, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/2)
+                .ignoresSafeArea(.keyboard)
+               
             
             
         }.onAppear(){
-            print("hi")
+
             // if the user did not authorize location use, we will provide a random city to lookup upon app start
             if isAuthorized() == false {
                 
@@ -101,7 +113,7 @@ struct ContentView: View {
             
             if isNight.isNightTime {
                 withAnimation(.easeInOut(duration: refreshTime)) {
-                    self.backGroundColor = Color.black //Color(red: 255/255, green: 25/255, blue: 25/255)
+                    self.backGroundColor = Color(red: 50/255, green: 50/255, blue: 50/255)
                 }
             }
             else {
@@ -141,7 +153,6 @@ struct ContentView: View {
     }
     
 }
-
 
 
 

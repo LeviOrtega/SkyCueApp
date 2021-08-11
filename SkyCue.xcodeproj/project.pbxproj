@@ -31,7 +31,11 @@
 		FBE6274826C37CAC006364EE /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE6274726C37CAC006364EE /* LocationDetailView.swift */; };
 		FBE6274A26C37DAA006364EE /* ImageDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE6274926C37DAA006364EE /* ImageDetail.swift */; };
 		FBE6274C26C38940006364EE /* SearchedLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE6274B26C38940006364EE /* SearchedLocationView.swift */; };
-		FBE6275026C39A5F006364EE /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE6274F26C39A5F006364EE /* SearchView.swift */; };
+		FBE6275026C39A5F006364EE /* SlideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE6274F26C39A5F006364EE /* SlideMenu.swift */; };
+		FBE6275226C4407B006364EE /* LocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE6275126C4407B006364EE /* LocationButton.swift */; };
+		FBE6275426C447DD006364EE /* LocationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE6275326C447DD006364EE /* LocationName.swift */; };
+		FBE6275626C45748006364EE /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE6275526C45748006364EE /* ArrayExtension.swift */; };
+		FBE6275826C45AF0006364EE /* MainLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE6275726C45AF0006364EE /* MainLocationView.swift */; };
 		FBF0949C26B3604D00B0EB70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF0949B26B3604D00B0EB70 /* AppDelegate.swift */; };
 		FBF0949E26B3604D00B0EB70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF0949D26B3604D00B0EB70 /* SceneDelegate.swift */; };
 		FBF094A026B3604D00B0EB70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF0949F26B3604D00B0EB70 /* ContentView.swift */; };
@@ -68,7 +72,11 @@
 		FBE6274726C37CAC006364EE /* LocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailView.swift; sourceTree = "<group>"; };
 		FBE6274926C37DAA006364EE /* ImageDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetail.swift; sourceTree = "<group>"; };
 		FBE6274B26C38940006364EE /* SearchedLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedLocationView.swift; sourceTree = "<group>"; };
-		FBE6274F26C39A5F006364EE /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		FBE6274F26C39A5F006364EE /* SlideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenu.swift; sourceTree = "<group>"; };
+		FBE6275126C4407B006364EE /* LocationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationButton.swift; sourceTree = "<group>"; };
+		FBE6275326C447DD006364EE /* LocationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationName.swift; sourceTree = "<group>"; };
+		FBE6275526C45748006364EE /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		FBE6275726C45AF0006364EE /* MainLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLocationView.swift; sourceTree = "<group>"; };
 		FBF0949826B3604D00B0EB70 /* SkyCue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkyCue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBF0949B26B3604D00B0EB70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBF0949D26B3604D00B0EB70 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,7 +127,9 @@
 				FB0F572E26B9D74600DAEE2E /* MainStackBackground.swift */,
 				FBE6273D26C33E88006364EE /* RefreshAndLocateView.swift */,
 				FBE6274126C33FAC006364EE /* MainContentView.swift */,
-				FBE6274F26C39A5F006364EE /* SearchView.swift */,
+				FBE6275726C45AF0006364EE /* MainLocationView.swift */,
+				FBE6275126C4407B006364EE /* LocationButton.swift */,
+				FBE6274F26C39A5F006364EE /* SlideMenu.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -155,6 +165,7 @@
 				FBF094A626B3604E00B0EB70 /* LaunchScreen.storyboard */,
 				FBF094A926B3604E00B0EB70 /* Info.plist */,
 				FBF094A326B3604E00B0EB70 /* Preview Content */,
+				FBE6275526C45748006364EE /* ArrayExtension.swift */,
 			);
 			path = SkyCue;
 			sourceTree = "<group>";
@@ -174,6 +185,7 @@
 				FB2BC08E26BDA320003EDCDC /* DayOfWeek.swift */,
 				FBE3526726B732F9006812CE /* ImageName.swift */,
 				FBE3527526B7E346006812CE /* IsNight.swift */,
+				FBE6275326C447DD006364EE /* LocationName.swift */,
 				FBF094B026B3647A00B0EB70 /* WeatherMain.swift */,
 				FB2BC08626BC7B5B003EDCDC /* ForecastResponse.swift */,
 				FBE3528E26B8F6E3006812CE /* RandomCity.swift */,
@@ -270,9 +282,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB0F572F26B9D74600DAEE2E /* MainStackBackground.swift in Sources */,
+				FBE6275626C45748006364EE /* ArrayExtension.swift in Sources */,
 				FBF094B426B3652400B0EB70 /* WeatherService.swift in Sources */,
 				FBF094B726B4A89400B0EB70 /* WeatherViewModel.swift in Sources */,
 				FBF0949C26B3604D00B0EB70 /* AppDelegate.swift in Sources */,
+				FBE6275226C4407B006364EE /* LocationButton.swift in Sources */,
 				FBE3528726B8AB61006812CE /* DescriptionView.swift in Sources */,
 				FBE6273E26C33E88006364EE /* RefreshAndLocateView.swift in Sources */,
 				FB2BC08B26BD98D5003EDCDC /* ForecastView.swift in Sources */,
@@ -281,10 +295,12 @@
 				FB2BC08526BC70AE003EDCDC /* ForecastService.swift in Sources */,
 				FBE3526A26B733F4006812CE /* ImageView.swift in Sources */,
 				FBF0949E26B3604D00B0EB70 /* SceneDelegate.swift in Sources */,
+				FBE6275426C447DD006364EE /* LocationName.swift in Sources */,
 				FBE6274C26C38940006364EE /* SearchedLocationView.swift in Sources */,
 				FBE3526426B71B47006812CE /* ErrorAlert.swift in Sources */,
 				FBE3526826B732F9006812CE /* ImageName.swift in Sources */,
-				FBE6275026C39A5F006364EE /* SearchView.swift in Sources */,
+				FBE6275026C39A5F006364EE /* SlideMenu.swift in Sources */,
+				FBE6275826C45AF0006364EE /* MainLocationView.swift in Sources */,
 				FBE3527626B7E346006812CE /* IsNight.swift in Sources */,
 				FBE3526F26B78558006812CE /* LocationManager.swift in Sources */,
 				FBF094B126B3647A00B0EB70 /* WeatherMain.swift in Sources */,

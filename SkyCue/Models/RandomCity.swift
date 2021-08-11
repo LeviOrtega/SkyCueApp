@@ -51,7 +51,6 @@ func randomCity() -> String {
                    "Ho Chi Minh City",
                    "Luanda",
                    "Wuhan",
-                   "Xi-an Shaanxi",
                    "Ahmedabad",
                    "New York City",
                    "Kuala Lumpur",

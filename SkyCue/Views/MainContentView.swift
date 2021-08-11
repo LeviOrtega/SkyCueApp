@@ -21,7 +21,8 @@ struct MainContentView: View {
     @Binding var refreshed: Bool
     @Binding var backGroundColor: Color
     @Binding var refreshTime: Double
-    
+    @Binding var menuOpen: Bool
+    @Binding var locationNameList: [LocationName]
     
     var body: some View {
         
@@ -33,7 +34,7 @@ struct MainContentView: View {
                     Spacer()
                     
                     VStack(alignment: .center, spacing: 0){
-                
+                        
                         ImageView(weatherVM: self.weatherVM, imageName: imageName.correlateName(uncorrelatedName: self.weatherVM.main, isNightTime: self.isNight.isNightTime))
                         Text(self.weatherVM.temperature == "" ? ""
                                 :"\(self.weatherVM.temperature) \u{00B0}F")
@@ -52,64 +53,25 @@ struct MainContentView: View {
                     Spacer()
                     
                     LocationDetailView(weatherVM: self.weatherVM)
-                    
-                    .font(Font.headline.weight(.light))
-                    .scaledToFill()
+                        
+                        .font(Font.headline.weight(.light))
+                        .scaledToFill()
                     
                     
                     Spacer()
                     
                     
-                }
+                }// HStack
                 .opacity(refreshViewOpacity)
                 .padding(20)
                 
-            }
+            }//ZStack
             .background(backGroundColor)
             .cornerRadius(50)
             
-        
             
+            MainLocationView(weatherVM: self.weatherVM, refreshViewOpacity: self.$refreshViewOpacity, refreshed: self.$refreshed, backGroundColor: self.$backGroundColor, refreshTime: self.$refreshTime, menuOpen: self.$menuOpen, locationNameList: self.$locationNameList)
             
-           
-            HStack{
-                
-                
-                ZStack{
-                    Button(action: {
-                        
-                            locate(locationManager: locationManager, weatherVM: weatherVM, error: error, onUserDemand: true)
-                            refreshed.toggle()
-                
-                    }){
-                        Image(systemName: "location")
-                    }
-                    
-                    
-                }
-                .frame(width: 35, height: 35)
-                .scaledToFill()
-                .background(backGroundColor)
-                .cornerRadius(50)
-                
-                SearchedLocationView(weatherVM: self.weatherVM, isNight: self.isNight, refreshed: $refreshed, refreshViewOpacity: $refreshViewOpacity, backGroundColor: self.$backGroundColor, refreshTime: self.$refreshTime)
-
-               
-                
-                NavigationLink(destination: SearchView(weatherVM: self.weatherVM, isNight: self.isNight, refreshed: $refreshed, refreshViewOpacity: $refreshViewOpacity, backGroundColor: self.$backGroundColor, refreshTime: self.$refreshTime)){
-                    ZStack{
-                        Image(systemName: "magnifyingglass")
-                            
-                        }.frame(width: 35, height: 35)
-                        .scaledToFill()
-                        .background(self.backGroundColor)
-                        .cornerRadius(50)
-                    
-                }
-                
-       
-            
-            }
             
             ForecastView(weatherVM: self.weatherVM, imageName: self.imageName, isNight: self.isNight, backGroundColor: self.$backGroundColor, refreshViewOpacity: self.$refreshViewOpacity)
             
@@ -127,7 +89,7 @@ struct MainContentView: View {
         
         
         
-              
+        
         
     }
     

@@ -18,6 +18,7 @@ struct TextBoxView: View {
     @Binding var refreshViewOpacity: Double
     @Binding var backGroundColor: Color
     @Binding var refreshTime: Double
+    @Binding var menuOpen: Bool
 
     
     var body: some View {
@@ -27,8 +28,31 @@ struct TextBoxView: View {
                 Image(systemName: "magnifyingglass")
 
                 TextField("Search", text: self.$weatherVM.cityName){
-                    self.refreshed.toggle()
-                }
+                    
+                    self.menuOpen.toggle()
+                    withAnimation(.easeInOut(duration: refreshTime), {
+                        self.refreshViewOpacity = 0
+                        
+                    })
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + refreshTime + 0.2) {
+                        
+                        self.weatherVM.search()
+                    }
+                    
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + refreshTime + 1) {
+                        
+                        // after the initial animation we want to animate back in
+                        withAnimation(.easeInOut(duration: refreshTime), {
+                            self.refreshViewOpacity = 1
+                            
+                        })
+                    }
+                    
+                    
+                }// textField
+             
                     .foregroundColor(.primary)
 
                 
@@ -37,6 +61,7 @@ struct TextBoxView: View {
             .foregroundColor(.secondary)
             .background(Color(.secondarySystemBackground))
             .cornerRadius(10.0)
+            .font(Font.headline.weight(.light))
         }
         .padding(.horizontal)
         //.background(self.backGroundColor)

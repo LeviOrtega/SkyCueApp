@@ -22,23 +22,23 @@ struct RefreshAndLocateView: View {
     var body: some View {
         HStack{
             
-            
-            
-            Button(action: {
-                
-                self.weatherVM.cityName = randomCity()
-                weatherVM.search()
-                
-            }){
-                ZStack{
-                Image(systemName: "shuffle")
+            ZStack{
+                Button(action: {
                     
-                }.frame(width: 35, height: 35)
-                .scaledToFill()
-                .background(self.backGroundColor)
-                .cornerRadius(50)
+                    locate(locationManager: locationManager, weatherVM: weatherVM, error: error, onUserDemand: true)
+                    refreshed.toggle()
+                    
+                }){
+                    Image(systemName: "location")
+                }
+                
+                
             }
-            
+            .frame(width: 35, height: 35)
+//            .scaledToFill()
+//            .background(backGroundColor)
+//            .cornerRadius(50)
+          
             Spacer()
             ZStack{
                 Button(action: {
@@ -50,9 +50,9 @@ struct RefreshAndLocateView: View {
                 
             }
             .frame(width: 35, height: 35)
-            .scaledToFill()
-            .background(backGroundColor)
-            .cornerRadius(50)
+//            .scaledToFill()
+//            .background(backGroundColor)
+//            .cornerRadius(50)
             
         }
         
@@ -62,4 +62,25 @@ struct RefreshAndLocateView: View {
     
     
 }
+
+
+
+
+
+////
+//Button(action: {
+//    
+//    self.weatherVM.cityName = randomCity()
+//    weatherVM.search()
+//    
+//}){
+//    ZStack{
+//    Image(systemName: "shuffle")
+//        
+//    }.frame(width: 35, height: 35)
+//    .scaledToFill()
+//    .background(self.backGroundColor)
+//    .cornerRadius(50)
+//}
+
 
