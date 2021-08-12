@@ -61,10 +61,7 @@ struct ContentView: View {
     var body: some View {
         
         
-        
-        
-        
-        
+
         ZStack{
             
             //LoadingView().opacity(coverViewOpactity)

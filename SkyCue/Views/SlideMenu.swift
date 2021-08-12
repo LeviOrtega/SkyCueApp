@@ -74,7 +74,7 @@ struct SlideMenu: View {
                                     Color(.systemGray4)
                                         .clipped()
                                         .cornerRadius(10)
-                                        .padding(2)
+                                        .padding(5)
                                        )
                                 
                       
