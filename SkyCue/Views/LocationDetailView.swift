@@ -14,7 +14,7 @@ struct LocationDetailView: View {
     @ObservedObject var weatherVM: WeatherViewModel
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 5){
+        VStack(alignment: .leading, spacing: 3){
           
             HStack{
                 ImageDetail(imageName: "globe")
@@ -22,20 +22,29 @@ struct LocationDetailView: View {
                         :"\(self.weatherVM.country)")
             }
             HStack{
-                ImageDetail(imageName: "calendar")
-                Text(self.weatherVM.timez == 0 ? "" :  getDate(weatherVM: self.weatherVM))
-            }
-            HStack{
                 ImageDetail(imageName: "clock")
                 Text(self.weatherVM.timez == 0 ? "" : "\(getTime(UTC: weatherVM.timez))")
             }
+            HStack{
+                ImageDetail(imageName: "calendar")
+                Text(self.weatherVM.timez == 0 ? "" :  getDate(weatherVM: self.weatherVM))
+            }
+           
             
             HStack{
-                ImageDetail(imageName: "sunrise.fill")
+                Image(systemName: "sunrise.fill")
+                    .resizable()
+                    .frame(width: 20, height: 17, alignment: .center)
+                    
+                    .scaledToFill()
                 Text(self.weatherVM.sunrise == 0.0 ? "" : "\(convertDate(timeResult: self.weatherVM.sunrise, weatherVM: weatherVM))")
             }
             HStack{
-                ImageDetail(imageName: "sunset.fill")
+                Image(systemName: "sunset")
+                    .resizable()
+                    .frame(width: 20, height: 17, alignment: .center)
+                    
+                    .scaledToFit()
                 Text(self.weatherVM.sunset == 0.0 ? "" : "\(convertDate(timeResult: self.weatherVM.sunset, weatherVM: weatherVM))")
                 
             }

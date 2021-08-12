@@ -14,7 +14,8 @@ struct ImageDetail: View {
     var body: some View {
         Image(systemName: imageName)
             .resizable()
-            .frame(width: 15, height: 15, alignment: .center)
+            .frame(width: 20, height: 20, alignment: .center)
+            
             .scaledToFit()
     }
 }

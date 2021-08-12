@@ -21,74 +21,75 @@ struct MainLocationView: View {
 
     
     var body: some View {
-        ZStack{
-            
-            
-            
-            Button(action: {
-                if !self.menuOpen {
-                    
-                    self.menuOpen.toggle()
-                }
-                
-            }){
-                SearchedLocationView(weatherVM: self.weatherVM).opacity(refreshViewOpacity)
+            ZStack{
                 
                 
-            }
-            .onLongPressGesture {
-                self.weatherVM.cityName = randomCity()
-                weatherVM.search()
-            }
-            
-            
-           
-            
-            
-            
-            
-            HStack{
                 
-                
-                Spacer()
                 Button(action: {
-                    
-                    
-                    let location = LocationName(name: weatherVM.cityName)
-                    
-                    if canAddToList(locationNameList: self.weatherVM.locationNameList, location: location){
-                        self.weatherVM.locationNameList.append(location)
+                    if !self.menuOpen {
+                        
+                        self.menuOpen.toggle()
                     }
                     
-                    // open location list
-                    self.menuOpen.toggle()
-                    
-                    
                 }){
+                    SearchedLocationView(weatherVM: self.weatherVM).opacity(refreshViewOpacity)
                     
                     
-                    Image(systemName: "plus")
+                }
+                .onLongPressGesture {
+                    self.weatherVM.cityName = randomCity()
+                    weatherVM.search()
+                }
+                
+                
+               
+                
+                
+                
+                
+                HStack{
+                    
+                    
+                    Spacer()
+                    Button(action: {
                         
-                        .resizable()
-                        .frame(width: 20, height: 20)
-                        .scaledToFit()
+                        
+                        let location = LocationName(name: weatherVM.cityName)
+                        
+                        if canAddToList(locationNameList: self.weatherVM.locationNameList, location: location){
+                            self.weatherVM.locationNameList.append(location)
+                        }
+                        
+                        // open location list
+                        self.menuOpen.toggle()
                         
                         
-                }.padding(5)
-                .font(Font.subheadline.weight(.light))
-                .opacity(refreshViewOpacity)
+                    }){
+                        
+                        
+                        Image(systemName: "plus")
+                            
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                            .scaledToFit()
+                            
+                            
+                    }.padding(5)
+                    .font(Font.subheadline.weight(.light))
+                    .opacity(refreshViewOpacity)
+                    
+                    
+                }
+                
                 
                 
             }
-            
-            
-            
+            .padding()
+            .background(self.backGroundColor)
+            .cornerRadius(100)
         }
-        .padding()
-        .background(self.backGroundColor)
-        .cornerRadius(100)
     }
-}
+
 
 
 

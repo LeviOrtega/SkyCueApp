@@ -51,7 +51,12 @@ struct MainContentView: View {
             }
         
         VStack(alignment: .center){
+            
+            
+            
+            
             VStack{
+          
                 ZStack{
                     
                     HStack{
@@ -59,6 +64,8 @@ struct MainContentView: View {
                         Spacer()
                         
                         VStack(alignment: .center, spacing: 0){
+                            
+                            
                             
                             ImageView(weatherVM: self.weatherVM, imageName: imageName.correlateName(uncorrelatedName: self.weatherVM.main, isNightTime: self.isNight.isNightTime))
                             Text(self.weatherVM.temperature == "" ? ""
@@ -88,7 +95,7 @@ struct MainContentView: View {
                     }// HStack
                     .opacity(refreshViewOpacity)
                     .padding(20)
-                    
+            
                 }//ZStack
                 .background(backGroundColor)
                 .cornerRadius(50)
