@@ -59,25 +59,45 @@ struct SlideMenu: View {
                 VStack{
                     
                     Text("Saved Locations")
-                        .padding(.top, 10)
+                        .padding(.top, 15)
                         .font(Font.headline.weight(.light))
                     
                     List{
                         
                         ForEach(weatherVM.locationNameList) { locName in
                             
-                        
-                            LocationButton(weatherVM: self.weatherVM, menuOpen: self.$menuOpen, refreshTime: self.$refreshTime, refreshViewOpacity: self.$refreshViewOpacity, locationName: locName.name!)
-                               
                             
+                            LocationButton(weatherVM: self.weatherVM, menuOpen: self.$menuOpen, refreshTime: self.$refreshTime, refreshViewOpacity: self.$refreshViewOpacity, locationName: locName.name!)
                                 
+                               
+                                .listRowBackground(
+                                    Color(.systemGray4)
+                                        .clipped()
+                                        .cornerRadius(10)
+                                        .padding(2)
+                                       )
+                                
+                      
                                 
                         
                         }
+                    
                         
                         
+                    
                         .onDelete(perform: self.deleteRow)
                     }
+                    
+                   
+                    .cornerRadius(20)
+                    .onAppear(){
+                        
+                          UITableViewCell.appearance().backgroundColor = .secondarySystemBackground
+                        UITableView.appearance().backgroundColor = .secondarySystemBackground
+                    }
+                    .padding(5)
+                    //.cornerRadius(50)
+                    
                     
                     
                     
@@ -85,7 +105,7 @@ struct SlideMenu: View {
                     
                 }// VStack
                 .frame(height: self.height)
-                .foregroundColor(.primary)
+                //.foregroundColor(.primary)
                 .background(Color(.secondarySystemBackground))
                 .cornerRadius(10.0)
             }
