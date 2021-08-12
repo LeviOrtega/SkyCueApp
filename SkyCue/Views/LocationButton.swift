@@ -18,7 +18,7 @@ struct LocationButton: View {
     var locationName: String = ""
     
     var body: some View{
-        HStack{
+        
             
         Button(action:{
             
@@ -50,9 +50,10 @@ struct LocationButton: View {
             Text(locationName)
                 .font(Font.headline.weight(.light))
         }
+       
           
             
-        }
+        
         
     }
     

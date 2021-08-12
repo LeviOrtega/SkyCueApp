@@ -24,7 +24,6 @@ struct SlideMenu: View {
 
     
     
-    
     let width: CGFloat
     let height: CGFloat
     
@@ -62,44 +61,39 @@ struct SlideMenu: View {
                         .padding(.top, 15)
                         .font(Font.headline.weight(.light))
                     
+                    
                     List{
                         
                         ForEach(weatherVM.locationNameList) { locName in
                             
-                            
+                          
                             LocationButton(weatherVM: self.weatherVM, menuOpen: self.$menuOpen, refreshTime: self.$refreshTime, refreshViewOpacity: self.$refreshViewOpacity, locationName: locName.name!)
+                                
                                 
                                
                                 .listRowBackground(
-                                    Color(.systemGray4)
-                                        .clipped()
-                                        .cornerRadius(10)
-                                        .padding(5)
+                                    Color(.secondarySystemBackground)
+                                        
                                        )
-                                
-                      
-                                
+                          
                         
                         }
                     
                         
                         
-                    
+                        
                         .onDelete(perform: self.deleteRow)
                     }
                     
                    
-                    .cornerRadius(20)
+                 
+                    //.cornerRadius(20)
                     .onAppear(){
                         
                           UITableViewCell.appearance().backgroundColor = .secondarySystemBackground
                         UITableView.appearance().backgroundColor = .secondarySystemBackground
                     }
                     .padding(5)
-                    //.cornerRadius(50)
-                    
-                    
-                    
                     
                     
                     
@@ -109,6 +103,9 @@ struct SlideMenu: View {
                 .background(Color(.secondarySystemBackground))
                 .cornerRadius(10.0)
             }
+            
+        
+          
             .frame(width: self.width*0.95)
             .offset(y: self.menuOpen ?  UIScreen.main.bounds.height - self.height*2: self.height*2)
             .animation(.default)
