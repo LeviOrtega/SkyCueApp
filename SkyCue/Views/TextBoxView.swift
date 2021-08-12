@@ -66,7 +66,6 @@ struct TextBoxView: View {
             .font(Font.headline.weight(.light))
         }
         .padding(.horizontal)
-        //.background(self.backGroundColor)
 
 
        

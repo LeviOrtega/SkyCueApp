@@ -22,55 +22,80 @@ struct MainContentView: View {
     @Binding var backGroundColor: Color
     @Binding var refreshTime: Double
     @Binding var menuOpen: Bool
-
+    
     
     var body: some View {
         
+        
+        let detectDirectionalDrags = DragGesture(minimumDistance: 3.0, coordinateSpace: .local)
+            .onEnded { value in
+                //print(value.translation)
+                
+                if value.translation.width < 0 && value.translation.height > -30 && value.translation.height < 30 {
+                    weatherVM.cityName = randomCity()
+                    refreshed.toggle()
+                }
+                else if value.translation.width > 0 && value.translation.height > -30 && value.translation.height < 30 {
+                    weatherVM.cityName = randomCity()
+                    refreshed.toggle()
+                }
+                //        else if value.translation.height < 0 && value.translation.width < 100 && value.translation.width > -100 {
+                //            print("up swipe")
+                //        }
+                //        else if value.translation.height > 0 && value.translation.width < 100 && value.translation.width > -100 {
+                //            print("down swipe")
+                //        }
+                //        else {
+                //            print("no clue")
+                //        }
+            }
+        
         VStack(alignment: .center){
-            ZStack{
-                
-                HStack{
+            VStack{
+                ZStack{
                     
-                    Spacer()
-                    
-                    VStack(alignment: .center, spacing: 0){
+                    HStack{
                         
-                        ImageView(weatherVM: self.weatherVM, imageName: imageName.correlateName(uncorrelatedName: self.weatherVM.main, isNightTime: self.isNight.isNightTime))
-                        Text(self.weatherVM.temperature == "" ? ""
-                                :"\(self.weatherVM.temperature) \u{00B0}F")
-                            .font(Font.largeTitle.weight(.light))
-                        DescriptionView(weatherVM: self.weatherVM)
+                        Spacer()
                         
-                    }
-                    .multilineTextAlignment(.center)
-                    .lineLimit(nil)
-                    .frame(width: 150, height: 200, alignment: .center)
-                    //.frame(width: UIScreen.main.bounds.width)
-                    .scaledToFill()
-                    
-                    
-                    
-                    Spacer()
-                    
-                    LocationDetailView(weatherVM: self.weatherVM)
-                        
-                        .font(Font.headline.weight(.light))
+                        VStack(alignment: .center, spacing: 0){
+                            
+                            ImageView(weatherVM: self.weatherVM, imageName: imageName.correlateName(uncorrelatedName: self.weatherVM.main, isNightTime: self.isNight.isNightTime))
+                            Text(self.weatherVM.temperature == "" ? ""
+                                    :"\(self.weatherVM.temperature) \u{00B0}F")
+                                .font(Font.largeTitle.weight(.light))
+                            DescriptionView(weatherVM: self.weatherVM)
+                            
+                        }
+                        .multilineTextAlignment(.center)
+                        .lineLimit(nil)
+                        .frame(width: 150, height: 200, alignment: .center)
                         .scaledToFill()
+                        
+                        
+                        
+                        Spacer()
+                        
+                        LocationDetailView(weatherVM: self.weatherVM)
+                            
+                            .font(Font.headline.weight(.light))
+                            .scaledToFill()
+                        
+                        
+                        Spacer()
+                        
+                        
+                    }// HStack
+                    .opacity(refreshViewOpacity)
+                    .padding(20)
                     
-                    
-                    Spacer()
-                    
-                    
-                }// HStack
-                .opacity(refreshViewOpacity)
-                .padding(20)
+                }//ZStack
+                .background(backGroundColor)
+                .cornerRadius(50)
                 
-            }//ZStack
-            .background(backGroundColor)
-            .cornerRadius(50)
-            
-            
-            MainLocationView(weatherVM: self.weatherVM, refreshViewOpacity: self.$refreshViewOpacity, refreshed: self.$refreshed, backGroundColor: self.$backGroundColor, refreshTime: self.$refreshTime, menuOpen: self.$menuOpen)
+                
+                MainLocationView(weatherVM: self.weatherVM, refreshViewOpacity: self.$refreshViewOpacity, refreshed: self.$refreshed, backGroundColor: self.$backGroundColor, refreshTime: self.$refreshTime, menuOpen: self.$menuOpen)
+            }.gesture(detectDirectionalDrags)
             
             
             ForecastView(weatherVM: self.weatherVM, imageName: self.imageName, isNight: self.isNight, backGroundColor: self.$backGroundColor, refreshViewOpacity: self.$refreshViewOpacity)

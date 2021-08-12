@@ -59,17 +59,3 @@ struct LocationButton: View {
     
 }
 
-//
-//Button(action: {
-//    
-//    
-//    
-//}){
-//    
-//    Image(systemName: "shuffle")
-//        .resizable()
-//        
-//    .frame(width: 20, height: 20)
-//    .scaledToFit()
-//    
-//}

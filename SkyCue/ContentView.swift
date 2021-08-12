@@ -67,28 +67,6 @@ struct ContentView: View {
             
             //LoadingView().opacity(coverViewOpactity)
             
-            let detectDirectionalDrags = DragGesture(minimumDistance: 3.0, coordinateSpace: .local)
-                .onEnded { value in
-                    //print(value.translation)
-                    
-                    if value.translation.width < 0 && value.translation.height > -30 && value.translation.height < 30 {
-                        weatherVM.cityName = randomCity()
-                        refreshed.toggle()
-                    }
-                    else if value.translation.width > 0 && value.translation.height > -30 && value.translation.height < 30 {
-                        weatherVM.cityName = randomCity()
-                        refreshed.toggle()
-                    }
-                    //        else if value.translation.height < 0 && value.translation.width < 100 && value.translation.width > -100 {
-                    //            print("up swipe")
-                    //        }
-                    //        else if value.translation.height > 0 && value.translation.width < 100 && value.translation.width > -100 {
-                    //            print("down swipe")
-                    //        }
-                    //        else {
-                    //            print("no clue")
-                    //        }
-                }
             
             // error view is put on top of zstack
             ErrorAlert(displayError: $error.displayError, errorMessage: $error.errorMessage, errorType: $error.errorType)
@@ -97,7 +75,7 @@ struct ContentView: View {
             
             MainStackBackground(weatherVM: weatherVM, isNight: isNight, locationManager: locationManager, imageName: imageName, error: error, refreshViewOpacity: $refreshViewOpacity, refreshed: $refreshed, backGroundColor: $backGroundColor, refreshTime: $refreshTime, menuOpen: self.$menuOpen)
                 .ignoresSafeArea(.keyboard)
-                .gesture(detectDirectionalDrags)
+                
             
             SlideMenu(weatherVM: self.weatherVM, isNight: self.isNight, refreshed: self.$refreshed, refreshViewOpacity: self.$refreshViewOpacity, backGroundColor: self.$backGroundColor, refreshTime: self.$refreshTime, menuOpen: self.$menuOpen, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/2)
                 .ignoresSafeArea(.keyboard)

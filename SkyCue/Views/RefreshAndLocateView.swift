@@ -35,9 +35,6 @@ struct RefreshAndLocateView: View {
                 
             }
             .frame(width: 35, height: 35)
-//            .scaledToFill()
-//            .background(backGroundColor)
-//            .cornerRadius(50)
           
             Spacer()
             ZStack{
@@ -50,9 +47,6 @@ struct RefreshAndLocateView: View {
                 
             }
             .frame(width: 35, height: 35)
-//            .scaledToFill()
-//            .background(backGroundColor)
-//            .cornerRadius(50)
             
         }
         

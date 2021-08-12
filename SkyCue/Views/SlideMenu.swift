@@ -84,7 +84,6 @@ struct SlideMenu: View {
                     
                 }// VStack
                 .frame(width: self.width*0.95)
-                //.padding(EdgeInsets(top: 4, leading: 8, bottom: 4, trailing: 8))
                 .foregroundColor(.primary)
                 .background(Color(.secondarySystemBackground))
                 .cornerRadius(10.0)
