@@ -29,7 +29,7 @@ struct TextBoxView: View {
 
                 TextField("Search", text: self.$weatherVM.cityName){
                     
-                   
+                    endEditing()
                     
                     self.menuOpen.toggle()
                     withAnimation(.easeInOut(duration: refreshTime), {

@@ -29,6 +29,8 @@ struct ContentView: View {
     
     
     
+    
+    
     func isAuthorized() -> Bool {
         // check to see if users allowed for location services
         guard let exposedLocation = self.locationManager.exposedLocation else {

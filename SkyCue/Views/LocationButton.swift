@@ -16,7 +16,6 @@ struct LocationButton: View {
     @Binding var refreshTime: Double
     @Binding var refreshViewOpacity: Double
     var locationName: String = ""
-    var temp: String = ""
     
     var body: some View{
         HStack{
@@ -24,6 +23,7 @@ struct LocationButton: View {
         Button(action:{
             
             self.menuOpen.toggle()
+            endEditing()
             
             withAnimation(.easeInOut(duration: refreshTime), {
                 self.refreshViewOpacity = 0
@@ -51,7 +51,6 @@ struct LocationButton: View {
                 .font(Font.headline.weight(.light))
         }
           
-            Text(temp)
             
         }
         

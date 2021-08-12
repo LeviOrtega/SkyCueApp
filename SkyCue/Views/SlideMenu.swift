@@ -46,6 +46,7 @@ struct SlideMenu: View {
             .animation(Animation.easeIn.delay(0.25))
             .onTapGesture {
                 self.menuOpen.toggle()
+                endEditing()
                
             }
             
@@ -83,12 +84,13 @@ struct SlideMenu: View {
                     
                     
                 }// VStack
-                .frame(width: self.width*0.95)
+                .frame(width: self.width*0.95, height: self.height)
                 .foregroundColor(.primary)
                 .background(Color(.secondarySystemBackground))
                 .cornerRadius(10.0)
             }
-            .offset(y: self.menuOpen ?  self.height*0.75: self.height*2)
+            
+            .offset(y: self.menuOpen ?  UIScreen.main.bounds.height - self.height*2: self.height*2)
             .animation(.default)
             
             
@@ -100,8 +102,19 @@ struct SlideMenu: View {
         
     }
     
+    
    
     
+}
+
+func endEditing() {
+       UIApplication.shared.endEditing()
+}
+
+extension UIApplication {
+    func endEditing() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
 }
 
 
