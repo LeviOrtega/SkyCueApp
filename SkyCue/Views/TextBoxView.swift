@@ -63,9 +63,9 @@ struct TextBoxView: View {
             .foregroundColor(.secondary)
             .background(Color(.secondarySystemBackground))
             .cornerRadius(10.0)
-            .font(Font.headline.weight(.light))
+            .font(Font.title.weight(.light))
         }
-        .padding(.horizontal)
+        //.padding(.horizontal)
 
 
        

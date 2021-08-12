@@ -84,12 +84,12 @@ struct SlideMenu: View {
                     
                     
                 }// VStack
-                .frame(width: self.width*0.95, height: self.height)
+                .frame(height: self.height)
                 .foregroundColor(.primary)
                 .background(Color(.secondarySystemBackground))
                 .cornerRadius(10.0)
             }
-            
+            .frame(width: self.width*0.95)
             .offset(y: self.menuOpen ?  UIScreen.main.bounds.height - self.height*2: self.height*2)
             .animation(.default)
             
